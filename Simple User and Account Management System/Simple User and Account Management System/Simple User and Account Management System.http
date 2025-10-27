@@ -1,0 +1,6 @@
+@Simple_User_and_Account_Management_System_HostAddress = http://localhost:5066
+
+GET {{Simple_User_and_Account_Management_System_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
