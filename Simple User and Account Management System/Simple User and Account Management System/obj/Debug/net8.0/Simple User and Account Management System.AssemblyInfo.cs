@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Simple User and Account Management System")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ce87f16f3d1260953665406f8925394d1f1c8bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Simple User and Account Management System")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Simple User and Account Management System")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
