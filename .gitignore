@@ -1,0 +1,16 @@
+# Visual Studio temporary files and folders
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.dbmdl
+*.cache
+*.pdb
+*.log
+*.tmp
+*.vscode/
+
+# Build outputs
+**/Debug/
+**/Release/
