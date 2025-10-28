@@ -1,0 +1,109 @@
+                                                          SIMPLE USER AND ACCOUNT MANAGEMENT SYSTEM
+                                                          -----------------------------------------
+
+Problem Statement:
+                  The project is to develop a Simple User and Account Management System for a banking domain that manages users, bank accounts, and associated operations. The system should support multiple banks and branches, where each user can hold multiple accounts across different banks. Accounts can be of various types such as savings, current, and term deposits, and may be operated by minors or through a power of attorney (POA). The system must handle multi-currency accounts for NRI users and allow operations such as deposits, withdrawals, account closure, and balance checks with specific limits. Each user is assigned roles and permissions that define their access level. All operations will be performed through authenticated REST APIs, ensuring secure and controlled access to all banking entities and actions.
+
+1. Project Overview
+
+   => The Simple User and Account Management System (SUAMS) is a modular, enterprise-grade banking application designed to manage users, banks,               accounts, and transactions with robust authentication, authorization, and domain-driven design (DDD) principles.
+
+   => The system enables both normal users and bank users to operate within a secure, role-based environment that strictly follows Object-Oriented Programming (OOP), Exception Handling, Security Policies, and Dependency Injection.
+
+2. Objectives
+
+   => Build a secure, scalable, and modular system for user and account management.
+
+   => Allow users to operate multiple accounts across multiple banks and branches.
+
+   => Maintain role-based access control (RBAC) for users and employees.
+
+   => Implement authenticated REST APIs for all operations with authorization limits.
+
+   => Follow clean architecture, OOP design, and best coding practices.
+
+   => Provide a clear, production-ready database design, entity relationships, and EF Core migrations.
+
+3. Explicit Requirements
+
+User Management
+
+  => Supports Normal Users (Customers) and Bank Users (Employees/Admins).
+
+  => Each user has roles and permissions that define access level.
+
+  => A user can log in, view details, and perform limited operations based on role.
+
+Account Management
+
+  => Each user can hold multiple accounts across different banks.
+
+  => Supported account types:
+
+     - Saving Account
+
+     - Current Account
+
+     - Term Deposit Account
+
+  => Accounts can be operated by:
+
+     - Minors under guardianship.
+
+     - POA (Power of Attorney) users.
+
+     - Support multi-currency accounts (for NRI customers).
+
+Banking Domain
+
+A bank can have multiple branches.
+
+Each branch can have multiple employees and accounts.
+
+Employees are responsible for managing branch operations and customer accounts.
+
+Transactions
+
+Users can:
+
+Deposit money
+
+Withdraw money (limited)
+
+Close account (limited)
+
+Operate account
+
+Check balance (limited)
+
+APIs
+
+All APIs require authentication (JWT-based).
+
+Authorization applies only to limited endpoints.
+
+REST Endpoints:
+
+/user → Create (limited), Update (limited), Delete (limited), Read (unlimited)
+
+/accounts → CRUD (inherits from base Account)
+
+/banks → CRUD (Bonus)
+
+/login → Authenticate user, assign roles
+
+4. Implicit Requirements
+Area	Implicit Requirement
+Security	All endpoints must be authenticated (JWT RS256), follow least-privilege access, and use dependency injection for services.
+Architecture	Use layered structure — Entities → Data → Repository → Service → Controller.
+OOP	Implement inheritance for Accounts (Saving, Current, TermDeposit).
+Transactions	Should support atomic operations with rollback on failure.
+Database	Use SQL Server with EF Core and maintain migrations.
+Error Handling	All APIs should return standardized error responses (HTTP 4xx/5xx).
+Audit	Maintain audit logs for user activities and transactions.
+Configuration	Use appsettings.json for connection strings and JWT keys.
+Scalability	Designed for multiple banks, branches, and users.
+Repository Pattern	All DB operations go through repositories, not direct DbContext calls.
+Dependency Injection	Services and repositories are injected using built-in DI container.
+                                                        
+
