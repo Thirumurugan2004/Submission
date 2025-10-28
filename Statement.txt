@@ -26,7 +26,7 @@ Problem Statement:
 
 3. Explicit Requirements
 
-User Management
+ User Management
 
   => Supports Normal Users (Customers) and Bank Users (Employees/Admins).
 
@@ -34,75 +34,78 @@ User Management
 
   => A user can log in, view details, and perform limited operations based on role.
 
-Account Management
+ Account Management
 
   => Each user can hold multiple accounts across different banks.
 
   => Supported account types:
 
-     - Saving Account
+       - Saving Account
 
-     - Current Account
+       - Current Account
 
-     - Term Deposit Account
+       - Term Deposit Account
 
   => Accounts can be operated by:
 
-     - Minors under guardianship.
+       - Minors under guardianship.
 
-     - POA (Power of Attorney) users.
+       - POA (Power of Attorney) users.
 
-     - Support multi-currency accounts (for NRI customers).
+  => Support multi-currency accounts (for NRI customers).
 
-Banking Domain
+ Banking Domain
 
-A bank can have multiple branches.
+  =>A bank can have multiple branches.
 
-Each branch can have multiple employees and accounts.
+  => Each branch can have multiple employees and accounts.
 
-Employees are responsible for managing branch operations and customer accounts.
+  => Employees are responsible for managing branch operations and customer accounts.
 
-Transactions
+ Transactions
 
-Users can:
+  => Users can:
 
-Deposit money
+        - Deposit money
 
-Withdraw money (limited)
+        - Withdraw money (limited)
 
-Close account (limited)
+        - Close account (limited)
 
-Operate account
+        - Operate account
 
-Check balance (limited)
+        - Check balance (limited)
 
-APIs
+ APIs
 
-All APIs require authentication (JWT-based).
+  => All APIs require authentication (JWT-based).
 
-Authorization applies only to limited endpoints.
+  => Authorization applies only to limited endpoints.
 
-REST Endpoints:
+  => REST Endpoints:
 
-/user → Create (limited), Update (limited), Delete (limited), Read (unlimited)
+          - /user     → Create (limited), Update (limited), Delete (limited), Read (unlimited)
 
-/accounts → CRUD (inherits from base Account)
+          - /accounts → CRUD (inherits from base Account)
 
-/banks → CRUD (Bonus)
+          - /banks    → CRUD (Bonus)
 
-/login → Authenticate user, assign roles
+          - /login    → Authenticate user, assign roles
+ 
 
-4. Implicit Requirements
-Area	Implicit Requirement
-Security	All endpoints must be authenticated (JWT RS256), follow least-privilege access, and use dependency injection for services.
-Architecture	Use layered structure — Entities → Data → Repository → Service → Controller.
-OOP	Implement inheritance for Accounts (Saving, Current, TermDeposit).
-Transactions	Should support atomic operations with rollback on failure.
-Database	Use SQL Server with EF Core and maintain migrations.
-Error Handling	All APIs should return standardized error responses (HTTP 4xx/5xx).
-Audit	Maintain audit logs for user activities and transactions.
-Configuration	Use appsettings.json for connection strings and JWT keys.
-Scalability	Designed for multiple banks, branches, and users.
+4.Implicit Requirements
+
+Area	                Implicit Requirement
+-------------------------------------------------
+Security	        All endpoints must be authenticated (JWT RS256), follow least-privilege access, and use dependency injection for services.
+Architecture	        Use layered structure — Entities → Data → Repository → Service → Controller.
+OOP	                Implement inheritance for Accounts (Saving, Current, TermDeposit).
+Transactions	        Should support atomic operations with rollback on failure.
+Database	        Use SQL Server with EF Core and maintain migrations.
+Error Handling	        All APIs should return standardized error responses (HTTP 4xx/5xx).
+Audit	                Maintain audit logs for user activities and transactions.
+Configuration	        Use appsettings.json for connection strings and JWT keys.
+Scalability	        Designed for multiple banks, branches, and users.
 Repository Pattern	All DB operations go through repositories, not direct DbContext calls.
 Dependency Injection	Services and repositories are injected using built-in DI container.
                                                         

@@ -1,54 +1,55 @@
-General Assumptions
+1.General Assumptions
 
-The system will be used by both bank employees and customers through secure, authenticated REST APIs.
+   => The system will be used by both bank employees and customers through secure, authenticated REST APIs.
 
-All APIs will require authentication, and only limited operations (like create/update/delete) will need authorization based on user roles.
+   => All APIs will require authentication, and only limited operations (like create/update/delete) will need authorization based on user roles.
 
-The system follows OOP principles, dependency injection, and exception handling throughout the project.
+   => The system follows OOP principles, dependency injection, and exception handling throughout the project.
 
-The application will use Entity Framework Core with SQL Server as the database.
+   => The application will use Entity Framework Core with SQL Server as the database.
 
-Each entity will be mapped using DbContext with proper relationships and configurations under OnModelCreating().
+   => Each entity will be mapped using DbContext with proper relationships and configurations under OnModelCreating().
 
-RS256 private/public key-based JWT authentication may be implemented for bonus security.
+   => RS256 private/public key-based JWT authentication may be implemented for bonus security.
 
 
-🔹 Domain-Specific Assumptions
+2.Domain-Specific Assumptions
 
-Each bank can have multiple branches, and each branch will have a unique branch code.
+   => Each bank can have multiple branches, and each branch will have a unique branch code.
 
-A user can have multiple accounts across different banks or branches.
+   => A user can have multiple accounts across different banks or branches.
 
-Each account belongs to exactly one bank branch.
+   => Each account belongs to exactly one bank branch.
 
-Accounts can be of types — Savings, Current, or Term Deposit.
+   => Accounts can be of types — Savings, Current, or Term Deposit.
 
-Minors can hold accounts jointly or through a Power of Attorney (POA).
+   => Minors can hold accounts jointly or through a Power of Attorney (POA).
 
-Accounts can support multiple currencies for NRI customers.
+   => Accounts can support multiple currencies for NRI customers.
 
-Transactions like deposit, withdrawal, and balance check have predefined limits as per role and account type.
+   => Transactions like deposit, withdrawal, and balance check have predefined limits as per role and account type.
 
-A bank employee can manage accounts, approve operations, and perform audits based on assigned permissions.
+   => A bank employee can manage accounts, approve operations, and perform audits based on assigned permissions.
 
-🔹 Security & Access Assumptions
+3.Security & Access Assumptions
 
-Only authenticated users can access the system.
+   => Only authenticated users can access the system.
 
-Authorization will be enforced based on user roles (e.g., Admin, Employee, Customer).
+   => Authorization will be enforced based on user roles (e.g., Admin, Employee, Customer).
 
-Sensitive data like passwords and tokens will be encrypted and not stored in plain text.
+   => Sensitive data like passwords and tokens will be encrypted and not stored in plain text.
 
-User actions will be logged for audit and tracking purposes.
+   => User actions will be logged for audit and tracking purposes.
 
-🔹 Implementation Assumptions
 
-Data migrations will be managed via EF Core Migrations.
+4.Implementation Assumptions
 
-Each API will follow REST standards (GET, POST, PUT, DELETE).
+   => Data migrations will be managed via EF Core Migrations.
 
-The project structure will be modular, supporting scalability for future features (like loan or credit card modules).
+   => Each API will follow REST standards (GET, POST, PUT, DELETE).
 
-Initial sample data (banks, branches, users, roles) will be populated using Seed Data.
+   => The project structure will be modular, supporting scalability for future features (like loan or credit card modules).
 
-No front-end interface is required — focus is only on backend API and database design.
+   => Initial sample data (banks, branches, users, roles) will be populated using Seed Data.
+
+   => No front-end interface is required — focus is only on backend API and database design.
