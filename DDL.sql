@@ -3,7 +3,7 @@
 -- Database: training | Schema: training
 -- ==========================================================
 
-CREATE DATABASE training;
+--CREATE DATABASE training;
 GO
 
 USE training;
