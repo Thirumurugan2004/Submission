@@ -1,0 +1,24 @@
+1.Install all packages
+
+dotnet add package Microsoft.EntityFrameworkCore --version 8.0.10
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.10
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.10
+Install-Package Microsoft.Data.SqlClient -Version 5.2.2
+Install-Package System.Configuration.ConfigurationManager -Version 8.0.0
+
+2.Add all entity class
+
+3.Add dbcontext
+
+4.update appsettings.json
+
+
+5. create database (sql manager)
+
+6. create schema (sql manager)
+
+7. dotnet build
+
+8. dotnet ef migrations InitialCreate
+
+9. dotnet ef database update
