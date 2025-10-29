@@ -30,6 +30,10 @@ namespace BankCustomerAPI.Entities.Training
 
         public Account Account { get; set; } = null!;
         public User User { get; set; } = null!;
-        public object OperatorUser { get; internal set; }
+
+        //public ICollection<AccountOperator> AccountOperators { get; set; } = new List<AccountOperator>();
+
+        [NotMapped]
+        public object? OperatorUser { get; internal set; }
     }
 }

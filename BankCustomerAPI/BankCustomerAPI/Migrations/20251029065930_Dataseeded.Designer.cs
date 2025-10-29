@@ -4,6 +4,7 @@ using BankCustomerAPI.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankCustomerAPI.Migrations
 {
     [DbContext(typeof(TrainingContext))]
-    partial class TrainingContextModelSnapshot : ModelSnapshot
+    [Migration("20251029065930_Dataseeded")]
+    partial class Dataseeded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -355,21 +358,21 @@ namespace BankCustomerAPI.Migrations
                         new
                         {
                             RoleId = 1,
-                            CreatedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(843),
+                            CreatedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(7743),
                             Description = "Full access",
                             RoleName = "Admin"
                         },
                         new
                         {
                             RoleId = 2,
-                            CreatedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(858),
+                            CreatedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(7754),
                             Description = "Limited access",
                             RoleName = "User"
                         },
                         new
                         {
                             RoleId = 3,
-                            CreatedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(861),
+                            CreatedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(7756),
                             Description = "Read-only",
                             RoleName = "Viewer"
                         });
@@ -514,7 +517,7 @@ namespace BankCustomerAPI.Migrations
                         new
                         {
                             UserId = 1L,
-                            CreatedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1205),
+                            CreatedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(8071),
                             Email = "admin@bank.com",
                             FullName = "Super Admin",
                             IsActive = true,
@@ -524,7 +527,7 @@ namespace BankCustomerAPI.Migrations
                         new
                         {
                             UserId = 2L,
-                            CreatedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1226),
+                            CreatedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(8083),
                             Email = "manager@bank.com",
                             FullName = "Manager User",
                             IsActive = true,
@@ -534,7 +537,7 @@ namespace BankCustomerAPI.Migrations
                         new
                         {
                             UserId = 3L,
-                            CreatedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1239),
+                            CreatedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(8091),
                             Email = "customer@bank.com",
                             FullName = "Customer User",
                             IsActive = true,
@@ -544,7 +547,7 @@ namespace BankCustomerAPI.Migrations
                         new
                         {
                             UserId = 4L,
-                            CreatedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1253),
+                            CreatedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(8099),
                             Email = "guest@bank.com",
                             FullName = "Guest User",
                             IsActive = true,
@@ -580,37 +583,31 @@ namespace BankCustomerAPI.Migrations
                         {
                             UserId = 1L,
                             RoleId = 1,
-                            AssignedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1295)
+                            AssignedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(8125)
                         },
                         new
                         {
                             UserId = 1L,
                             RoleId = 2,
-                            AssignedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1298)
-                        },
-                        new
-                        {
-                            UserId = 1L,
-                            RoleId = 3,
-                            AssignedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1300)
+                            AssignedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(8126)
                         },
                         new
                         {
                             UserId = 2L,
                             RoleId = 1,
-                            AssignedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1302)
+                            AssignedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(8128)
                         },
                         new
                         {
                             UserId = 3L,
                             RoleId = 2,
-                            AssignedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1303)
+                            AssignedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(8128)
                         },
                         new
                         {
                             UserId = 4L,
                             RoleId = 3,
-                            AssignedAt = new DateTime(2025, 10, 29, 13, 51, 46, 490, DateTimeKind.Local).AddTicks(1305)
+                            AssignedAt = new DateTime(2025, 10, 29, 12, 29, 30, 178, DateTimeKind.Local).AddTicks(8129)
                         });
                 });
 

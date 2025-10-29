@@ -47,8 +47,10 @@ namespace BankCustomerAPI.Entities.Training
 
         public User User { get; set; } = null!;
         public Branch Branch { get; set; } = null!;
-        public ICollection<AccountOperator> Operators { get; set; } = new List<AccountOperator>();
+        public ICollection<AccountOperator> AccountOperators { get; set; } = new List<AccountOperator>();
+
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
-        public object AccountOperators { get; internal set; }
+
+        //public object AccountOperators { get; internal set; }
     }
 }
