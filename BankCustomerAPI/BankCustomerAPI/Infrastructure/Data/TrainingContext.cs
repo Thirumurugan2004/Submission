@@ -28,21 +28,21 @@ namespace BankCustomerAPI.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // ✅ Default Schema
+            // Default Schema
             modelBuilder.HasDefaultSchema("training");
 
-            // =======================
+            
             // Composite Keys
-            // =======================
+           
             modelBuilder.Entity<UserRole>()
                 .HasKey(ur => new { ur.UserId, ur.RoleId });
 
             modelBuilder.Entity<RolePermission>()
                 .HasKey(rp => new { rp.RoleId, rp.PermissionId });
 
-            // =======================
+            
             // Relationships
-            // =======================
+           
             modelBuilder.Entity<UserRole>()
                 .HasOne(ur => ur.User)
                 .WithMany(u => u.UserRoles)
@@ -67,9 +67,9 @@ namespace BankCustomerAPI.Infrastructure.Data
                 .HasForeignKey(rp => rp.PermissionId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // === Relationships for Bank, Branch, etc. ===
-            // (keep your existing relationships as-is)
-            // ----------------------------------------------------------
+            //Relationships for Bank, Branch..
+            
+            
             modelBuilder.Entity<Branch>()
                 .HasOne(b => b.Bank)
                 .WithMany(bk => bk.Branches)
@@ -108,7 +108,7 @@ namespace BankCustomerAPI.Infrastructure.Data
 
             modelBuilder.Entity<AccountOperator>()
     .HasOne(ao => ao.Account)
-    .WithMany(a => a.AccountOperators) // ✅ correct navigation name
+    .WithMany(a => a.AccountOperators) 
     .HasForeignKey(ao => ao.AccountId)
     .OnDelete(DeleteBehavior.Cascade);
 
@@ -131,9 +131,9 @@ namespace BankCustomerAPI.Infrastructure.Data
                 .HasForeignKey(t => t.PerformedBy)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // ==========================================================
-            // ✅ SEED DATA (Roles, Users, UserRoles)
-            // ==========================================================
+           
+            // SEED DATA (Roles, Users, UserRoles)
+            
             string Hash(string password) =>
                 Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(password)));
 

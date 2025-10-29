@@ -8,20 +8,18 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ======================================================
-// 🧱 1️⃣ Add Services
-// ======================================================
 
-// ✅ JWT Token Service
+
+// JWT Token Service
 builder.Services.AddScoped<ITokenService, TokenService>();
 
-// ✅ DbContext
+// DbContext
 builder.Services.AddDbContext<TrainingContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ======================================================
-// 🔐 2️⃣ JWT Authentication Configuration
-// ======================================================
+
+// JWT Authentication Configuration
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -38,9 +36,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// ======================================================
-// 🧩 3️⃣ Swagger + JWT Support
-// ======================================================
+
+//Swagger + JWT Support
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -49,7 +47,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1"
     });
 
-    // 🔑 Add JWT Authorization to Swagger
+    // Add JWT Authorization to Swagger
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
@@ -75,20 +73,16 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// ======================================================
-// ⚙️ 4️⃣ MVC Controllers
-// ======================================================
+
+//MVC Controllers
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// ======================================================
-// 🚀 5️⃣ Build App
-// ======================================================
+
 var app = builder.Build();
 
-// ======================================================
-// 🌍 6️⃣ Middleware Pipeline
-// ======================================================
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -97,7 +91,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication(); // 🔒 Always before Authorization
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.MapControllers();
