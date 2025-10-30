@@ -115,16 +115,66 @@ hr{
     border-top: 1px solid #fafafa;
 }
 
-#newletter{
+#newsletter{
     padding-top: 30px;
     padding-bottom: 60px;
 }
 
-#newsletter-input{
-    margin-bottom: 20px;
-    border:1px solid #00ff00;
-    border-radius: 5px;
+#newsletter {
+    text-align: center;
 }
+
+#newsletter table {
+    margin: 0 auto; /* Centers the table */
+}
+
+#newsletter input {
+    display: inline-block;
+    width: 250px;
+    margin-right: 10px;
+}
+
+#newsletter a {
+    display: inline-block;
+    width: auto;
+    padding: 10px 20px;
+    height: auto;
+    line-height: normal;
+    vertical-align: middle;
+}
+/* MEDIA SECTION */
+#media-section {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 60px 0;
+}
+
+#media-section h2 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#media-section video,
+#media-section audio {
+    display: block;
+    margin: 0 auto 40px auto;
+    border: 3px solid #ff4747;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#media-section video {
+    width: 60%;
+    max-width: 700px;
+    height: auto;
+}
+
+#media-section audio {
+    width: 60%;
+    max-width: 500px;
+}
+
 
 footer{
     background-color: #e86f6f;
