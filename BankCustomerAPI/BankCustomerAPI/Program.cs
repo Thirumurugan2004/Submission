@@ -8,8 +8,6 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
 // JWT Token Service
 builder.Services.AddScoped<ITokenService, TokenService>();
 
@@ -17,13 +15,11 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddDbContext<TrainingContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
 // JWT Authentication Configuration
-
+var keyBytes = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!);
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -32,22 +28,24 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(key)
+            IssuerSigningKey = new SymmetricSecurityKey(keyBytes)
         };
     });
 
+// Authorization policies (role-based)
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdmin", policy => policy.RequireRole("Admin", "Super Admin"));
+    options.AddPolicy("RequireManager", policy => policy.RequireRole("Manager", "Admin", "Super Admin"));
+    options.AddPolicy("RequireUser", policy => policy.RequireRole("User", "Admin", "Super Admin"));
+    options.AddPolicy("RequireViewer", policy => policy.RequireRole("Viewer", "Admin", "Super Admin"));
+});
 
-//Swagger + JWT Support
-
+// Swagger with JWT support
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Bank Customer API",
-        Version = "v1"
-    });
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Bank Customer API", Version = "v1" });
 
-    // Add JWT Authorization to Swagger
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
@@ -60,28 +58,16 @@ builder.Services.AddSwaggerGen(options =>
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            new string[] {}
+            new OpenApiSecurityScheme { Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" } },
+            new string[] { }
         }
     });
 });
 
-
-//MVC Controllers
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-
 var app = builder.Build();
-
 
 if (app.Environment.IsDevelopment())
 {
@@ -91,7 +77,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

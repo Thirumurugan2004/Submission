@@ -149,7 +149,9 @@ namespace BankCustomerAPI.Infrastructure.Data
                 new User { UserId = 1, FullName = "Super Admin", Email = "admin@bank.com", PasswordHash = Hash("admin123"), IsActive = true, CreatedAt = DateTime.Now },
                 new User { UserId = 2, FullName = "Manager User", Email = "manager@bank.com", PasswordHash = Hash("manager123"), IsActive = true, CreatedAt = DateTime.Now },
                 new User { UserId = 3, FullName = "Customer User", Email = "customer@bank.com", PasswordHash = Hash("customer123"), IsActive = true, CreatedAt = DateTime.Now },
-                new User { UserId = 4, FullName = "Guest User", Email = "guest@bank.com", PasswordHash = Hash("guest123"), IsActive = true, CreatedAt = DateTime.Now }
+                new User { UserId = 4, FullName = "Guest User", Email = "guest@bank.com", PasswordHash = Hash("guest123"), IsActive = true, CreatedAt = DateTime.Now },
+                new User { UserId = 5, FullName = "Guest User1", Email = "guest1@bank.com", PasswordHash = Hash("guest123"), IsActive = true, CreatedAt = DateTime.Now }
+
             );
 
             // --- UserRoles ---
