@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<!--HEAD SECTION STARTS-->
+
+<head>
+    <title>My Web Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins">-->
+</head>
+<!--HEAD SECTION END-->
+
+<!--BODY SECTION STARTS-->
+
+<body>
+    <!--HEADER SECTION STARTS-->
+    <header>
+        <!--LOGO SECTION STARTS-->
+        <h3>Logo</h3>
+        <!--MESSAGE ABOUT ME-->
+        <h1>Hi I am <span>Thirumurugan K</span></h1>
+        <!--CALL ME BUTTON-->
+        <a href="#contact" class="button">Say Hello !</a>
+
+    </header>
+    <!--HEADER SECTION END-->
+
+    <section class="about">
+        <h2>About me</h2>
+        <p>I am Thirumurugan from Tiruppur. Currently working as software developer in Congruent Solutions Private Limited. Currently working as software developer in Congruent Solutions Private Limited</p>
+    </section>
+
+    <!--CONTACT  STARTS-->
+    <div id="contact">
+        <h2>Impressed with my work?</h2>
+        <form method="post" action="server/api">
+            <input type="text" name="First Name" placeholder="Enter your First Name">
+            <input type="text" name="Last Name" placeholder="Enter your Last Name">
+            <textarea placeholder="Enter youe message for Thiru..."></textarea>
+            <button type="submit">Send</button>
+
+        </form>
+    </div>
+    <!--CONTACT END-->
+
+    <!--SHOW MY WORKS USING PICTURES-->
+    <div id="gallery">
+        <h2>Here are samples of my work</h2>
+        <table cellspacing=0 cellpadding=0>
+            <tr>
+                <td><img src="https://unsplash.it/300/200"></td>
+                <td><img src="https://unsplash.it/300/200?random"></td>
+                <td><img src="https://unsplash.it/300/200?image=10"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><img src="https://unsplash.it/600/200?random"></td>
+                <td><img src="https://unsplash.it/300/200?image=6"></td>
+            </tr>
+        </table>
+    </div>
+    <!--END OF GALLERY SECTION-->
+
+    <hr/>
+
+    <div id="newsletter">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h2>Let's stay connected</h2>
+                </td>
+            </tr>
+            <tr>
+                <td><input name="" type="text" placeholder="Email"></td>
+                <td><a type="submit">Subscribe</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <!--FOOTER STARTS-->
+    <footer>
+        <p>Copyright @2025 for all rights reserved</p>
+    </footer>
+    <!--FOOTER END-->
+
+</body>
+<!--BODY SECTION END-->
+
+</html>

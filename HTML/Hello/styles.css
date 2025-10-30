@@ -1,0 +1,136 @@
+body{
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Poppins',sans-serif;
+}
+header, section, div{
+    padding-top: 100px; 
+    padding-bottom: 100px;
+}
+
+h1{
+    font-size: 40px;
+    line-height: 54px;
+}
+
+h2{
+    font-size: 30px;
+    line-height: 44px;
+}
+
+p{
+    font-family: 300;
+    font-size: 22px;
+    line-height: 33px;
+}
+
+a, button{
+    background-color: rgb(255, 71, 71);
+
+    display: block;
+    margin: 0 auto;
+
+    width: 170px;
+    height: 46px;
+    border-radius: 23px;
+
+    font-size: 22PX;
+    line-height: 44PX;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover, button:hover{
+    background-color: rgb(105, 228, 105);
+    color: #000;
+    cursor: pointer;
+}
+
+header{
+    background-color: aqua;
+    background-image: url(https://unsplash.it/1900/700?image=60);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+header h1{
+    color: rgb(248, 248, 248);
+}
+
+header span{
+    color: rgb(38, 170, 253);
+}
+
+.about p{
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+input, textarea{
+    display: block;
+    width: 320px;
+    height: auto;
+
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    border: 1px solid #797878;
+    border-radius: 15px;
+
+    transition: border-color 0.5s ease;
+}
+
+input:focus, textarea:focus{
+    outline: 0;
+    border-color: red;
+}
+
+textarea{
+    height: 150px;
+}
+
+#contact button{
+    border:none;
+    outline: 0;
+    margin-top: 25px;
+}
+
+#contact button:hover{
+    background-color: green;
+    cursor: pointer;
+
+}
+
+.gallery{
+    background-color: #fff;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+hr{
+    border-top: 1px solid #fafafa;
+}
+
+#newletter{
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.newsletter-input{
+    margin-bottom: 20px;
+    border:1px solid #00ff00;
+    border-radius: 5px;
+}
+
+footer{
+    background-color: #e86f6f;
+}
+
+footer p{
+    font-size: 12px;
+    margin: 0;
+}

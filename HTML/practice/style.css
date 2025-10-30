@@ -1,0 +1,15 @@
+body{
+    background-color: bisque;
+}
+p,div{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.special{
+    font-size: 20px;
+}
+
+#id1{
+    text-decoration:solid;
+}
