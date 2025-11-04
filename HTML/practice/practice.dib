@@ -5,3 +5,484 @@
 #!javascript
 
 console.log("Hello World");
+
+#!javascript
+
+let i = 0;
+i = i + 300 - 4 * 100;
+console.log(i);
+i = "thiru";
+console.log(i);
+i = null;
+console.log(i);
+i = undefined;
+console.log(i);
+
+#!markdown
+
+LOOP
+
+#!javascript
+
+//for loop
+let sum=0;
+for(let j=1;j<=100;j++){
+   sum+=j;
+}
+
+console.log(sum);
+
+#!javascript
+
+//write proper while loop without curly brasis
+let sum2=0;
+let k=1;
+while(k<=100){
+    sum2 += k;
+    k++;
+}
+console.log(sum2);
+
+#!markdown
+
+ARRAY
+
+#!javascript
+
+//array
+let array = [1, 2, 3, 4, 5,"thiru"];
+array.forEach(value => console.log(value));
+
+#!javascript
+
+var a = [];
+a[10] = 3;
+a.push(5);
+a[6666] = 6;
+a[3000]="thiru"
+console.log(a[0]);
+console.log(a[10]);
+console.log(a[11]);
+console.log(a[6666]);
+console.log(a[3000]);
+console.log(a.length);
+
+#!javascript
+
+let values = [10, 20, "hello", 30, 40];
+let sum = 0;
+
+
+for (let i = 0; i < values.length; i++) {
+    if (!isNaN(values[i])) sum += values[i]; 
+}
+
+console.log("Array:", values);
+console.log("Sum of numbers only:", sum);
+
+#!javascript
+
+var a = [];
+var b = [1, 2, 3];
+var c = new Array();
+var d = new Array("thiru","murugan");
+var e = new Array(10);
+console.log(a.length);
+console.log(b.length); 
+console.log(c.length);
+console.log(d.length);
+console.log(e.length);
+var t = 6;
+console.log(t);
+
+#!javascript
+
+try{
+    var g = new Array(6.7);
+    console.log(g.length);
+}
+catch(err){
+    console.log("Error:", err.message);
+}
+
+#!markdown
+
+FUNCTION
+
+#!javascript
+
+function sayHello(name) {
+    if(name != null){
+        console.log("Hello " + name);
+    }
+}
+
+sayHello("Thiru");
+sayHello(1);
+sayHello(null);
+
+#!javascript
+
+function $(){
+this.name = "Thiru";
+console.log("Inside $ function");
+}
+
+var b = function(){
+ console.log("b function of $");
+}
+
+$.b = b;
+$.b();
+
+#!javascript
+
+function block(){
+ function foo(){
+    console.log(x);
+ }
+foo();
+let x=3;
+foo();
+}
+
+//block.foo();
+
+#!csharp
+
+let val=[];
+for(var x=0;x<4;x+=1){
+val.push(() => x);
+}
+console.log(val.map(x => x()));
+
+#!javascript
+
+const obj = {par : 3};
+obj = 4;
+obj.par = 12;
+object.freeze(obj);
+obj.par = 15;
+console.seal(obj);
+obj.newParam = 20;
+
+#!javascript
+
+let x = 3;
+let xo = {x};
+console.log(xo.x);
+let xo = {x: x};
+console.log(xo.x);
+
+#!javascript
+
+let eq = [];
+for(let x=1;x <=20;x++){
+eq.push(({x,y:2*x*x-5*x+3}));
+}
+console.log(eq);
+
+#!javascript
+
+let s1 = Symbol("thiru");
+let s2 = Symbol("thiru");
+console.log(s1 == s2);
+console.log(s1 === s2);
+let s3 = s1;
+console.log(s1 == s3);
+console.log(s1 === s3);
+
+#!javascript
+
+const js_obj = {
+    name : "thiru", age:60,
+    [Symbol.toPrimitive](hint){
+        if(hint == "string"){
+            return "Hint : guess over 50";
+        }
+        if(hint == "number"){
+            return 58;
+        }
+        if(hint == "default"){
+            return "somewhere between 50 and 60";
+        }
+    }
+ }
+
+ console.log( `${js_obj}`); // string
+ console.log(js_obj+'');  //default
+ console.log(+js_obj); // number
+ console.log(js_obj);
+
+#!javascript
+
+class jedi{
+ constructor(){
+    this.forceIsDark = false;
+  }
+ toString(){
+    return (this.forceIsDark ? 'Join' : 'fear is the path to') + ' the dark side.';
+ }
+}
+
+class sith extends jedi{
+ constructor(){
+    super();
+    this.forceIsDark = true;
+ }
+}
+let j = new jedi("yoda");
+console.log(`${j}`);
+let s = new sith("Darth Vader");
+console.log(`${s}`);
+console.log(s instanceof jedi);
+console.log(j instanceof sith);
+console.log(jedi.__proto__);
+console.log(sith.__proto__);
+console.log(sith.prototype.__proto__);
+
+#!javascript
+
+let arr = ['a', 'b', 'c'];
+for(let i in arr){                  // in
+    if(arr.hasOwnProperty(i)){
+        console.log(i); 
+    }
+}
+
+for(let i of arr){                 // of
+    console.log(i);
+}
+
+#!javascript
+
+console.log([..."abcd"]);
+[first,second, ...rest] = "thiru";
+console.log(first);
+console.log(second);
+console.log(rest[0]);
+console.log(rest);
+
+#!javascript
+
+let it = [1,2,3,,6][Symbol.iterator]();
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+
+#!javascript
+
+function gen(n){
+    return{
+        [Symbol.iterator](){
+            let i = 0;
+            return{
+                next(){ 
+                    return {
+                       done: (i > n) ? true : false,
+                       value: i++
+                    };
+                
+                }
+            };
+        }
+    };
+    
+    
+}
+
+for(let v of gen(10)){
+    console.log(v);
+}
+
+console.log(Array.from(gen(10), x => x * x));
+
+#!javascript
+
+const rating = [5,4,5];
+let sum = 0;
+const asynSumFunction = async(a,b) => a + b;
+const syncSumFunction = (a,b) => a + b;
+
+rating.forEach(async(rating) => {
+    sum = await asynSumFunction(sum, rating);
+    console.log("Asynchronous Sum:", sum);
+});
+
+console.log("Final sum : ",sum);
+
+#!javascript
+
+const logArrayElement = (element, index/*, array*/) => {
+    console.log(`a[${index}] = ${element}`);
+};
+
+[2, 5, , 9].forEach(logArrayElement);
+
+#!javascript
+
+let arrayLike = {
+    0: 'Hello',
+    1: 'World',
+    length: 2
+};
+
+Array.from(arrayLike);
+
+#!javascript
+
+console.log(['a','b','c'].keys());
+
+var s1 = ['a','b','c'].keys();
+console.log(s1.next());
+console.log(s1.next());
+console.log(s1.next());
+console.log(s1.next());
+
+var s = [...['a','b','c'].keys()];
+console.log(s);
+
+var s3 = Array.from(['a','b','c'].entries());
+console.log(s3);
+
+var s2 = ['a','b','c'].entries();
+console.log(s2.next());
+console.log(s2.next());
+console.log(s2.next());
+console.log(s2.next());
+
+#!javascript
+
+console.log([4,3,66,56,78].find(x => x > 10));
+
+#!javascript
+
+var m = new Map([['a',1],['b',2],['c',3]]);
+console.log(m.get('b'));
+console.log(m.has('c'));
+m.set('d',4);
+console.log(m.size);
+m.delete('a');
+console.log(m.size);
+for(let [key,value] of m){
+    console.log(key + " : " + value);
+}
+
+#!javascript
+
+let m = new Map([...'abcd'].map( x =>[x, x+x]));
+console.log(JSON.stringify([...m]));
+console.log(JSON.stringify(m.keys()));
+console.log(JSON.stringify(m.values()));
+console.log(JSON.stringify([...m.entries()]));
+
+#!javascript
+
+let s = new Set([1,2,3,4,5,5,4,3,2,1]);
+s.add(6);
+s.add(3);
+console.log(s.size);
+s.delete(2);
+console.log(s.size);
+for(let v of s){
+    console.log(v);
+}
+
+#!javascript
+
+function* genFour(){
+    yield 1;
+    yield 2;
+    yield 3;
+    return 4;
+}
+
+let four = genFour();
+console.log(four.next());
+console.log(four.next());
+console.log(four.next());
+console.log(four.next());
+console.log(four.next());
+
+#!javascript
+
+function* flatten(array){
+    for(let x of array){
+        if(x instanceof Array){
+            yield* flatten(x);
+        }
+        else{
+            yield x;
+        }
+    }
+}
+
+let test = flatten[1, [2, 3], 4, [5, 6, [7, 8]]];
+
+#!javascript
+
+const button = document.createElement('button');
+button.innerText = 'Show Time';
+document.body.appendChild(button);
+
+button.addEventListener('click', () => {
+    setInterval(() => {
+        console.log(new Date().toLocaleTimeString());
+    }, 1000);
+}); 
+
+#!javascript
+
+let a = {x: 3, y: 4};
+let {x : x, y:z} = a;
+console.log(x);
+console.log(z);
+let {y} = a;
+console.log(y);
+
+#!javascript
+
+function* genInf() {
+    for (let i = 0; ; i++) {
+      yield i;
+    }
+  }
+  
+  let gen = genInf();
+  
+  
+  console.log(gen.next().value); // 0
+  console.log(gen.next().value); // 1
+  console.log(gen.next().value); // 2
+  
+
+#!javascript
+
+let [a,b=3] = [1,undefined];
+console.log(a);
+console.log(b);
+
+let [x=4,y=x]=[];
+console.log(x);
+console.log(y);
+
+let [c=d,d=4] = [];
+console.log(c);
+console.log(d);
+
+#!javascript
+
+let reverse = ([x,...y]) => (y.length > 0) ? [...reverse(y), x] : [x];
+console.log(reverse([1,2,3,4,5]));
+
+#!javascript
+
+function* squares(n){
+for(let i=1;i<n;i+=1){
+    yield i*i;
+}
+}   
+console.log([...squares(10)]);

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date & Time Button</title>
+</head>
+<body>
+  <button id="timeBtn">Show Date & Time</button>
+
+  <script>
+    const updateTime = () => {
+      const now = new Date();
+      const date = now.toLocaleDateString();
+      const time = now.toLocaleTimeString();
+      document.getElementById("timeBtn").textContent = `${date} ${time}`;
+      setTimeout(updateTime, 1000);
+    };
+
+    // Start updating when the button is clicked
+    document.getElementById("timeBtn").addEventListener("click", updateTime);
+  </script>
+</body>
+</html>

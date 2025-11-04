@@ -1,0 +1,29 @@
+p{
+    border: 2PX SOLID black;
+    margin: 2px;
+    padding: 5PX;
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2PX;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.content{
+    border: 2px solid black;
+    margin: 0.33rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
