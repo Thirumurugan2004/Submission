@@ -1,0 +1,24 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:ts": "tsc",
+    "build:babel": "babel src --out-dir dist --extensions '.ts' --copy-files",
+    "build": "npm run clean && npm run build:ts && npm run build:babel",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "rimraf": "^6.1.0",
+    "typescript": "^5.9.3"
+  }
+}

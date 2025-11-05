@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2020",                // modern JS features
+    "module": "commonjs",              // for Node.js
+    "lib": ["ES2020", "DOM"],          // add Array, Set, Map, etc.
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*", "**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
