@@ -227,4 +227,20 @@ class Emp{
     }
 }
 
+//readonly property
+
+console.log("\n===============================");
+console.log("   Readonly Property Example   ");
+console.log("===============================");
+
+class Car {
+    readonly brand: string;
+    constructor(brand: string) {
+        this.brand = brand;
+    }
+}
+let myCar = new Car("Toyota");
+console.log("Car brand:", myCar.brand); 
+//myCar.brand = "Honda"; // Error: Cannot assign to 'brand' because it is a read-only property
+
 

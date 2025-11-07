@@ -198,3 +198,16 @@ var Emp = /** @class */ (function () {
     }
     return Emp;
 }());
+//readonly property
+console.log("\n===============================");
+console.log("   Readonly Property Example   ");
+console.log("===============================");
+var Car = /** @class */ (function () {
+    function Car(brand) {
+        this.brand = brand;
+    }
+    return Car;
+}());
+var myCar = new Car("Toyota");
+console.log("Car brand:", myCar.brand);
+//myCar.brand = "Honda"; // Error: Cannot assign to 'brand' because it is a read-only property

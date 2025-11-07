@@ -1,14 +1,14 @@
-import { sayHello, dollarFunction, blockExample } from "./modules/functions.js";
-import { Jedi, Sith, oopsExample } from "./modules/oops.js";
-import { arrayExamples } from "./modules/arrays_maps_sets.js";
-import { iteratorExamples, customIteratorExample } from "./modules/iterators.js";
-import { basicGenerator, flattenGenerator } from "./modules/generators.js";
-import { asyncSumExample } from "./modules/async_examples.js";
-import { destructuringExample } from "./modules/destructuring.js";
-import { symbolExamples } from "./modules/symbols.js";
-import { reverse1, square } from "./modules/reverse.js";
-import { findCommon1 } from "./modules/common_element.js";
-
+import { sayHello, dollarFunction, blockExample } from "./modules/functions.ts";
+import { Jedi, Sith, oopsExample } from "./modules/oops.ts";
+import { arrayExamples } from "./modules/arrays_maps_sets.ts";
+import { iteratorExamples, customIteratorExample } from "./modules/iterators.ts";
+import { basicGenerator, flattenGenerator } from "./modules/generators.ts";
+import { asyncSumExample } from "./modules/async_examples.ts";
+import { destructuringExample } from "./modules/destructuring.ts";
+import { symbolExamples } from "./modules/symbols.ts";
+import { reverse1, square } from "./modules/reverse.ts";
+import { findCommon1 } from "./modules/common_element.ts";
+  
 
 function printSection(title: string): void {
   const line = "=".repeat(50);
