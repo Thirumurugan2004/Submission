@@ -1,0 +1,165 @@
+
+/* === Page layout === */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6; /* light gray background */
+    height: 100%;
+  }
+  
+  /* Center content vertically and horizontally */
+  .flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  
+  /* === Button styling === */
+  button {
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .bg-green-500 {
+    background-color: #22c55e;
+  }
+  
+  .bg-green-500:hover {
+    background-color: #16a34a;
+  }
+  
+  .bg-red-600 {
+    background-color: #e8583c;
+  }
+  
+  .bg-red-600:hover {
+    background-color: #940000;
+  }
+  
+  .bg-blue-500 {
+    background-color: #3b82f6;
+  }
+  
+  .bg-blue-500:hover {
+    background-color: #2563eb;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  
+  /* === Popup overlay === */
+  .fixed {
+    position: fixed;
+  }
+  
+  .inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .bg-black\/40 {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .z-50 {
+    z-index: 50;
+  }
+  
+  /* Center popup in screen */
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  /* === Popup Card === */
+  .bg-white {
+    background-color: white;
+  }
+  
+  .border {
+    border: 1px solid #e5e7eb;
+  }
+  
+  .border-gray-200 {
+    border-color: #e5e7eb;
+  }
+  
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+  
+  .shadow-2xl {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .w-96 {
+    width: 24rem;
+  }
+  
+  .p-6 {
+    padding: 1.5rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .text-gray-800 {
+    color: #1f2937;
+  }
+  
+  .text-gray-600 {
+    color: #4b5563;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .mb-5 {
+    margin-bottom: 1.25rem;
+  }

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-// import App from './App';
+import App from './App';
 // import Welcome from './welcome';
 // import MyFormExample from "./FormExample";
 import ToDoList from './ToDoList';
@@ -13,6 +13,9 @@ import CardPattern from './CardPattern';
 import ArrayDetails from './ArrayObj';
 import PersonDetails from './PersonDetails';
 import { people } from './Person'; 
+import FormController from './Form/FormController';
+import PopupManager from './Popup/PopupManager';
+
 
 
 
@@ -23,6 +26,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const sampleArray = [42, 'Hello', true,5,'thiru'];
 root.render(
   <React.StrictMode>
+    <App />
     <TestImage />
     <ToDoList />
     <ToDoList1 />
@@ -30,6 +34,8 @@ root.render(
     <CardPattern {...{name: "Thirumurugan", age: 21}}/>
     <ArrayDetails items={sampleArray} />
     <PersonDetails people={people} /> 
+    <PopupManager />
+    <FormController />
 
     {/* <MyFormExample name="thiru"/>
     <MyFormExample name="murugan"/>
