@@ -15,6 +15,8 @@ import PersonDetails from './PersonDetails';
 import { people } from './Person'; 
 import FormController from './Form/FormController';
 import PopupManager from './Popup/PopupManager';
+import ClockWithColor from './Clock/ClockWithColor';
+import TimeDisplay from './Clock/TimeDisplay';
 
 
 
@@ -36,6 +38,9 @@ root.render(
     <PersonDetails people={people} /> 
     <PopupManager />
     <FormController />
+    <TimeDisplay />
+    <ClockWithColor />
+    
 
     {/* <MyFormExample name="thiru"/>
     <MyFormExample name="murugan"/>
