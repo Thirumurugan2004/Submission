@@ -1,22 +1,23 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { submitForm, clearForm } from "../redux/loginSlice";
+import { useNavigate } from "react-router-dom";
 import FormField from "./FormField";
-import Button from "./Button"; 
+import Button from "./Button";
 
 function LoginForm() {
   const dispatch = useDispatch();
-  const formData = useSelector((state) => state.login);
+  const navigate = useNavigate();
+  
 
   const handleSubmit = () => {
     dispatch(submitForm());
+    navigate("/about"); 
   };
 
   const handleClear = () => {
     dispatch(clearForm());
   };
-
-  console.log("Current Form Data:", formData);
 
   return (
     <div
@@ -38,30 +39,10 @@ function LoginForm() {
         <FormField namespace="password" type="password" />
       </div>
 
-  
       <div style={{ marginTop: "10px" }}>
         <Button label="Submit" onClick={handleSubmit} />
         <Button label="Reset" onClick={handleClear} />
       </div>
-
-      
-      {formData.submitted && (
-        <div
-          style={{
-            marginTop: "20px",
-            textAlign: "left",
-            marginLeft: "40px",
-          }}
-        >
-          
-          <p style={{ color: "green" }}>Form submitted successfully ✅</p>
-          <hr />
-          <h4>Submitted Data:</h4>
-          <p>Username: {formData.username}</p>
-          <p>Email: {formData.email}</p>
-          <p>Password: {formData.password}</p>
-        </div>
-      )}
     </div>
   );
 }
