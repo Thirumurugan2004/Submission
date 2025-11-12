@@ -1,7 +1,8 @@
 {
   "name": "redux-form",
   "version": "0.1.0",
-  "private": true,
+  "proxy" : "https://localhost:7220/",
+  "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^2.10.1",
     "@testing-library/dom": "^10.4.1",

@@ -66,6 +66,7 @@ namespace BankCustomerAPI.Controllers
                 fullname = user.FullName,
                 roles, // multiple roles
                 token,
+                userId = user.UserId,
                 message = "Login successful!"
             });
         }

@@ -1,60 +1,105 @@
 import React from "react";
-import { NavLink} from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { clearForm } from "../redux/loginSlice";
 
 function NavBar() {
-  
+  const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { userData } = useSelector((state) => state.login);
+
+  const currentPath = location.pathname;
+
+  const baseStyle = {
+    textDecoration: "none",
+    color: "white",
+    fontWeight: "bold",
+    padding: "6px 12px",
+    borderRadius: "6px",
+    transition: "0.3s",
+  };
+
+  const activeStyle = {
+    backgroundColor: "yellow",
+    color: "#000",
+  };
+
+  const handleLogout = () => {
+    dispatch(clearForm());
+    navigate("/home");
+  };
+
   return (
     <nav
       style={{
-        backgroundColor: "rgb(0 207 255)",
-        padding: "20px 20px",
+        backgroundColor: "#007bff",
+        padding: "10px 20px",
         display: "flex",
         justifyContent: "center",
         gap: "30px",
       }}
     >
-      <NavLink
+      {/* Always show Home */}
+      <Link
         to="/home"
-        style={({ isActive }) => ({
-          color: isActive ? "yellow" : "white",
-          textDecoration: "none",
-          fontWeight: "bold",
-        })}
+        style={{
+          ...baseStyle,
+          ...(currentPath === "/home" ? activeStyle : {}),
+        }}
       >
         Home
-      </NavLink>
+      </Link>
 
-      <NavLink
-        to="/about"
-        style={({ isActive }) => ({
-          color: isActive ? "yellow" : "white",
-          textDecoration: "none",
-          fontWeight: "bold",
-        })}
-      >
-        About
-      </NavLink>
+      {/* Show Login if not logged in */}
+      {!userData && (
+        <Link
+          to="/"
+          style={{
+            ...baseStyle,
+            ...(currentPath === "/" ? activeStyle : {}),
+          }}
+        >
+          Login
+        </Link>
+      )}
 
-      <NavLink
-        to="/contact"
-        style={({ isActive }) => ({
-          color: isActive ? "yellow" : "white",
-          textDecoration: "none",
-          fontWeight: "bold",
-        })}
-      >
-        Contact
-      </NavLink>
-      <NavLink
-        to="/"
-        style={({ isActive }) => ({
-          color: isActive ? "yellow" : "white",
-          textDecoration: "none",
-          fontWeight: "bold",
-        })}
-      >
-        Logout
-      </NavLink>
+      {/* Show others only after login */}
+      {userData && (
+        <>
+          <Link
+            to="/about"
+            style={{
+              ...baseStyle,
+              ...(currentPath === "/about" ? activeStyle : {}),
+            }}
+          >
+            About
+          </Link>
+
+          <Link
+            to="/contact"
+            style={{
+              ...baseStyle,
+              ...(currentPath === "/contact" ? activeStyle : {}),
+            }}
+          >
+            Contact
+          </Link>
+
+          <span
+            onClick={handleLogout}
+            style={{
+              ...baseStyle,
+              cursor: "pointer",
+              backgroundColor: "#dc3545",
+              color: "white",
+            }}
+          >
+            Logout
+          </span>
+        </>
+      )}
     </nav>
   );
 }

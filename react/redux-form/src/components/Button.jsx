@@ -1,18 +1,21 @@
 import React from "react";
 
-function Button({ label, onClick }) {
+function Button({ label, onClick, style }) {
   return (
     <button
       onClick={onClick}
       style={{
-        marginRight: "10px",
-        padding: "8px 16px",
+        padding: "10px 16px",
         border: "none",
         borderRadius: "6px",
-        backgroundColor: "#007bff",
         color: "white",
+        fontWeight: "bold",
         cursor: "pointer",
+        transition: "all 0.3s",
+        ...style,
       }}
+      onMouseOver={(e) => (e.target.style.opacity = "0.85")}
+      onMouseOut={(e) => (e.target.style.opacity = "1")}
     >
       {label}
     </button>

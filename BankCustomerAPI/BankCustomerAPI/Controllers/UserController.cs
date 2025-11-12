@@ -34,7 +34,7 @@ namespace BankCustomerAPI.Controllers
             return Ok(new { message = "User created successfully", userId = newUser.UserId });
         }
 
-        // 🔵 READ — All roles can view
+        // 🔵 READ (Single User) — All roles can view
         [HttpGet("read")]
         [Authorize(Roles = "Viewer,User,Manager,Admin,Super Admin")]
         public async Task<IActionResult> ReadUser(long id)
@@ -92,6 +92,40 @@ namespace BankCustomerAPI.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "User soft-deleted successfully (marked inactive)" });
+        }
+
+        // 🟣 GET ALL USERS — Manager, Admin, SuperAdmin
+        [HttpGet("all")]
+        [Authorize] // authorize first (any valid token)
+        public async Task<IActionResult> GetAllUsers()
+        {
+            // ✅ Check if user has required role
+            var userRole = User.Claims
+                .FirstOrDefault(c => c.Type.Contains("role"))?.Value;
+
+            if (userRole is not ("Manager" or "Admin" or "Super Admin"))
+            {
+                return Forbid(); // OR:
+                                 // return StatusCode(403, new { message = "No permission to view users" });
+            }
+
+            var users = await _context.Users
+                .Where(u => u.IsActive)
+                .Select(u => new
+                {
+                    u.UserId,
+                    u.FullName,
+                    u.Email,
+                    u.IsActive,
+                    u.CreatedAt,
+                    u.UpdatedAt
+                })
+                .ToListAsync();
+
+            if (!users.Any())
+                return NotFound(new { message = "No active users found" });
+
+            return Ok(users);
         }
     }
 }

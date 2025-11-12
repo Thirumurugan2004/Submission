@@ -32,7 +32,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// Authorization policies (role-based)
+// Authorization policies
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("RequireAdmin", policy => policy.RequireRole("Admin", "Super Admin"));
@@ -41,7 +41,18 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("RequireViewer", policy => policy.RequireRole("Viewer", "Admin", "Super Admin"));
 });
 
-// Swagger with JWT support
+// ✅ Allow all CORS (disable restrictions)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+// Swagger
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Bank Customer API", Version = "v1" });
@@ -76,6 +87,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// ✅ Apply CORS policy before authentication
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();
