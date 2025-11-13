@@ -1,7 +1,7 @@
 {
   "name": "redux-form",
   "version": "0.1.0",
-  "proxy" : "https://localhost:7220/",
+  "proxy": "https://localhost:7220/",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^2.10.1",
@@ -40,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1"
   }
 }
