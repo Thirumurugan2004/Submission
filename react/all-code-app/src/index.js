@@ -17,6 +17,10 @@ import FormController from './Form/FormController';
 import PopupManager from './Popup/PopupManager';
 import ClockWithColor from './Clock/ClockWithColor';
 import TimeDisplay from './Clock/TimeDisplay';
+import AsyncButton from './Buttons/AsyncButton';
+import PromiseButton from './Buttons/PromiseButton';
+import TimeoutButton from './Buttons/TimeoutButton';
+
 
 
 
@@ -40,6 +44,9 @@ root.render(
     <FormController />
     <TimeDisplay />
     <ClockWithColor />
+    <AsyncButton />
+    <PromiseButton />
+    <TimeoutButton/>
     
 
     {/* <MyFormExample name="thiru"/>
