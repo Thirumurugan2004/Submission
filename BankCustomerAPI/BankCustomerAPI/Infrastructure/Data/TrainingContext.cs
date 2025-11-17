@@ -12,6 +12,7 @@ namespace BankCustomerAPI.Infrastructure.Data
         {
         }
 
+        // -------------------- DBSets --------------------
         public DbSet<Role> Roles { get; set; } = null!;
         public DbSet<Permission> Permissions { get; set; } = null!;
         public DbSet<RolePermission> RolePermissions { get; set; } = null!;
@@ -24,145 +25,151 @@ namespace BankCustomerAPI.Infrastructure.Data
         public DbSet<AccountOperator> AccountOperators { get; set; } = null!;
         public DbSet<Transaction> Transactions { get; set; } = null!;
 
+        // Security
+        public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
+        public DbSet<AuditLog> AuditLogs { get; set; } = null!;
+        public DbSet<LoginAttempt> LoginAttempts { get; set; } = null!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Default Schema
             modelBuilder.HasDefaultSchema("training");
 
-            
-            // Composite Keys
-           
+            // -------------------- Composite Keys --------------------
             modelBuilder.Entity<UserRole>()
                 .HasKey(ur => new { ur.UserId, ur.RoleId });
 
             modelBuilder.Entity<RolePermission>()
                 .HasKey(rp => new { rp.RoleId, rp.PermissionId });
 
-            
-            // Relationships
-           
+            // -------------------- Relationships --------------------
+
+            // UserRole → User
             modelBuilder.Entity<UserRole>()
                 .HasOne(ur => ur.User)
                 .WithMany(u => u.UserRoles)
                 .HasForeignKey(ur => ur.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // UserRole → Role
             modelBuilder.Entity<UserRole>()
                 .HasOne(ur => ur.Role)
                 .WithMany(r => r.UserRoles)
                 .HasForeignKey(ur => ur.RoleId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<RolePermission>()
-                .HasOne(rp => rp.Role)
-                .WithMany(r => r.RolePermissions)
-                .HasForeignKey(rp => rp.RoleId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<RolePermission>()
-                .HasOne(rp => rp.Permission)
-                .WithMany(p => p.RolePermissions)
-                .HasForeignKey(rp => rp.PermissionId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            //Relationships for Bank, Branch..
-            
-            
+            // Branch → Bank
             modelBuilder.Entity<Branch>()
                 .HasOne(b => b.Bank)
                 .WithMany(bk => bk.Branches)
                 .HasForeignKey(b => b.BankId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Employee → Bank
             modelBuilder.Entity<Employee>()
                 .HasOne(e => e.Bank)
                 .WithMany(b => b.Employees)
                 .HasForeignKey(e => e.BankId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Employee → Branch
             modelBuilder.Entity<Employee>()
                 .HasOne(e => e.Branch)
                 .WithMany(b => b.Employees)
                 .HasForeignKey(e => e.BranchId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Account>()
-                .HasOne(a => a.Branch)
-                .WithMany(b => b.Accounts)
-                .HasForeignKey(a => a.BranchId)
-                .OnDelete(DeleteBehavior.Restrict);
-
+            // Employee → User
             modelBuilder.Entity<Employee>()
                 .HasOne(e => e.User)
                 .WithOne()
                 .HasForeignKey<Employee>(e => e.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Account → Branch
+            modelBuilder.Entity<Account>()
+                .HasOne(a => a.Branch)
+                .WithMany(b => b.Accounts)
+                .HasForeignKey(a => a.BranchId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Account → User
             modelBuilder.Entity<Account>()
                 .HasOne(a => a.User)
                 .WithMany(u => u.Accounts)
                 .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // AccountOperator → Account
             modelBuilder.Entity<AccountOperator>()
-    .HasOne(ao => ao.Account)
-    .WithMany(a => a.AccountOperators) 
-    .HasForeignKey(ao => ao.AccountId)
-    .OnDelete(DeleteBehavior.Cascade);
+                .HasOne(ao => ao.Account)
+                .WithMany(a => a.AccountOperators)
+                .HasForeignKey(ao => ao.AccountId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-
+            // AccountOperator → User
             modelBuilder.Entity<AccountOperator>()
                 .HasOne(ao => ao.User)
                 .WithMany(u => u.AccountOperators)
                 .HasForeignKey(ao => ao.OperatorUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Transaction → Account
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.Account)
                 .WithMany(a => a.Transactions)
                 .HasForeignKey(t => t.AccountId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Transaction → PerformedByUser
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.PerformedByUser)
                 .WithMany(u => u.Transactions)
                 .HasForeignKey(t => t.PerformedBy)
                 .OnDelete(DeleteBehavior.Restrict);
 
-           
-            // SEED DATA (Roles, Users, UserRoles)
-            
-            string Hash(string password) =>
-                Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(password)));
+            // -------------------- Security Relationships --------------------
 
-            // --- Roles ---
-            modelBuilder.Entity<Role>().HasData(
-                new Role { RoleId = 1, RoleName = "Admin", Description = "Full access", CreatedAt = DateTime.Now },
-                new Role { RoleId = 2, RoleName = "User", Description = "Limited access", CreatedAt = DateTime.Now },
-                new Role { RoleId = 3, RoleName = "Viewer", Description = "Read-only", CreatedAt = DateTime.Now }
-            );
+            modelBuilder.Entity<RefreshToken>()
+    .HasOne(rt => rt.User)
+    .WithMany()
+    .HasForeignKey(rt => rt.UserId)
+    .OnDelete(DeleteBehavior.Cascade);
 
-            // --- Users ---
-            modelBuilder.Entity<User>().HasData(
-                new User { UserId = 1, FullName = "Super Admin", Email = "admin@bank.com", PasswordHash = Hash("admin123"), IsActive = true, CreatedAt = DateTime.Now },
-                new User { UserId = 2, FullName = "Manager User", Email = "manager@bank.com", PasswordHash = Hash("manager123"), IsActive = true, CreatedAt = DateTime.Now },
-                new User { UserId = 3, FullName = "Customer User", Email = "customer@bank.com", PasswordHash = Hash("customer123"), IsActive = true, CreatedAt = DateTime.Now },
-                new User { UserId = 4, FullName = "Guest User", Email = "guest@bank.com", PasswordHash = Hash("guest123"), IsActive = true, CreatedAt = DateTime.Now },
-                new User { UserId = 5, FullName = "Guest User1", Email = "guest1@bank.com", PasswordHash = Hash("guest123"), IsActive = true, CreatedAt = DateTime.Now }
+            modelBuilder.Entity<LoginAttempt>()
+     .HasOne(la => la.User)
+     .WithMany()
+     .HasForeignKey(la => la.UserId)
+     .OnDelete(DeleteBehavior.SetNull);
 
-            );
+            //modelBuilder.Entity<RefreshToken>()
+            //    .HasOne(rt => rt.User)
+            //    .WithMany()
+            //    .HasForeignKey(rt => rt.UserId)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
-            // --- UserRoles ---
-            modelBuilder.Entity<UserRole>().HasData(
-                new UserRole { UserId = 1, RoleId = 1, AssignedAt = DateTime.Now }, // SuperAdmin → Admin
-                new UserRole { UserId = 1, RoleId = 2, AssignedAt = DateTime.Now }, // SuperAdmin → User
-                new UserRole { UserId = 1, RoleId = 3, AssignedAt = DateTime.Now }, // SuperAdmin -> viewer
-                new UserRole { UserId = 2, RoleId = 1, AssignedAt = DateTime.Now }, // Manager → Admin
-                new UserRole { UserId = 3, RoleId = 2, AssignedAt = DateTime.Now }, // Customer → User
-                new UserRole { UserId = 4, RoleId = 3, AssignedAt = DateTime.Now }  // Guest → Viewer
-            );
+            modelBuilder.Entity<AuditLog>()
+                .HasOne(a => a.User)
+                .WithMany()
+                .HasForeignKey(a => a.UserId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            //modelBuilder.Entity<LoginAttempt>()
+            //    .HasOne<User>()
+            //    .WithMany()
+            //    .HasForeignKey(a => a.UserId)
+            //    .OnDelete(DeleteBehavior.SetNull);
+
+            // -------------------- Indexes --------------------
+            modelBuilder.Entity<RefreshToken>().HasIndex(rt => rt.Token);
+            modelBuilder.Entity<RefreshToken>().HasIndex(rt => rt.UserId);
+            modelBuilder.Entity<LoginAttempt>().HasIndex(la => la.Email);
+            modelBuilder.Entity<LoginAttempt>().HasIndex(la => la.AttemptAt);
+
+
+            // -------------------- Seed Removed --------------------
+            // REMOVE seed to prevent duplicate data issues
         }
     }
 }

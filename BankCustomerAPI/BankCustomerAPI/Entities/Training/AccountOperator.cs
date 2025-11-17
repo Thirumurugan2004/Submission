@@ -7,33 +7,18 @@ namespace BankCustomerAPI.Entities.Training
     public class AccountOperator
     {
         [Key]
-        [Column("operatorid")]
-        public long OperatorId { get; set; }
-
-        [ForeignKey("Account")]
-        [Column("accountid")]
+        [Column("accountid", Order = 0)]
         public long AccountId { get; set; }
 
-        [ForeignKey("User")]
-        [Column("operatoruserid")]
+        [Key]
+        [Column("operatoruserid", Order = 1)]
         public long OperatorUserId { get; set; }
 
-        [Required, MaxLength(30)]
-        [Column("operatortype")]
-        public string OperatorType { get; set; } = null!;
-
-        [Column("startdate")]
-        public DateTime StartDate { get; set; }
-
-        [Column("enddate")]
-        public DateTime? EndDate { get; set; }
+        // ⭐ NOT MAPPED → DOES NOT TOUCH DB
+        [Column("addedon")]
+        public DateTime AddedOn { get; set; } = DateTime.Now;
 
         public Account Account { get; set; } = null!;
         public User User { get; set; } = null!;
-
-        //public ICollection<AccountOperator> AccountOperators { get; set; } = new List<AccountOperator>();
-
-        [NotMapped]
-        public object? OperatorUser { get; internal set; }
     }
 }

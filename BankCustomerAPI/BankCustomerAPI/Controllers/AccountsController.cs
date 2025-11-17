@@ -1,119 +1,224 @@
-﻿using BankCustomerAPI.Infrastructure.Data;
-using BankCustomerAPI.Entities.Training;
+﻿using BankCustomerAPI.Entities.Training;
+using BankCustomerAPI.Infrastructure.Data;
+using BankCustomerAPI.Models.Account;
+using BankCustomerAPI.Models.Branch;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace BankCustomerAPI.Controllers
 {
     [ApiController]
     [Route("BankCustomerAPI/accounts")]
-    public class AccountsController : ControllerBase
+    public class AccountController : ControllerBase
     {
         private readonly TrainingContext _context;
 
-        public AccountsController(TrainingContext context)
+        public AccountController(TrainingContext context)
         {
             _context = context;
         }
 
-        // 🟢 CREATE — Only Admin or SuperAdmin
+        // ----------------------------------------------------------------------
+        // 🔧 Helper to extract email from JWT
+        // ----------------------------------------------------------------------
+        private string GetEmail()
+        {
+            return
+                User.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value ??
+                User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value ??
+                User.Claims.FirstOrDefault(c => c.Type.Contains("email"))?.Value ??
+                throw new Exception("Email claim not found in token");
+        }
+
+        // ----------------------------------------------------------------------
+        // 1️⃣ CREATE ACCOUNT (Admin Only)
+        // ----------------------------------------------------------------------
         [HttpPost("{userId}/create")]
         [Authorize(Roles = "Admin,Super Admin")]
-        public async Task<IActionResult> CreateAccount(long userId, [FromBody] Account account)
+        public async Task<IActionResult> CreateAccount(long userId, [FromBody] CreateAccountRequest req)
         {
-            if (account == null)
-                return BadRequest(new { message = "Invalid account data" });
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+                return NotFound(new { message = "User not found" });
 
-            // validate user and branch exist
-            var userExists = await _context.Users.AnyAsync(u => u.UserId == userId);
-            if (!userExists)
-                return NotFound(new { message = "User not found." });
+            var branch = await _context.Branches.FindAsync(req.BranchId);
+            if (branch == null)
+                return NotFound(new { message = "Branch not found" });
 
-            var branchExists = await _context.Branches.AnyAsync(b => b.BranchId == account.BranchId);
-            if (!branchExists)
-                return NotFound(new { message = "Branch not found." });
-
-            account.UserId = userId;
-            account.AccountNumber = $"ACC{DateTime.Now.Ticks % 10000000000}"; // simple auto number
-            account.OpenedOn = DateTime.Now;
-            account.IsActive = true;
+            var account = new Account
+            {
+                UserId = userId,
+                BranchId = req.BranchId,
+                AccountType = req.AccountType,
+                CurrencyCode = req.CurrencyCode,
+                InterestRate = req.InterestRate,
+                Balance = req.InitialBalance,
+                AccountNumber = "ACCT" + Guid.NewGuid().ToString("N").Substring(0, 10),
+                OpenedOn = DateTime.Now,
+                IsActive = true
+            };
 
             _context.Accounts.Add(account);
             await _context.SaveChangesAsync();
 
             return Ok(new
             {
-                message = "✅ Account created successfully.",
+                message = "Account created",
                 accountId = account.AccountId,
                 account.AccountNumber
             });
         }
 
-        // 🔵 READ — Allowed for all roles
-        [HttpGet("{id}/read")]
-        [Authorize(Roles = "Viewer,User,Manager,Admin,Super Admin")]
-        public async Task<IActionResult> ReadAccount(long id)
+        // ----------------------------------------------------------------------
+        // 2️⃣ GET LOGGED-IN USER'S ACCOUNTS
+        // ----------------------------------------------------------------------
+        [HttpGet("my")]
+        [Authorize(Roles = "User,Admin,Super Admin")]
+        public async Task<IActionResult> GetMyAccounts()
         {
-            var account = await _context.Accounts
-                .Include(a => a.User)
+            var email = GetEmail();
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+                return NotFound(new { message = "User not found" });
+
+            var accounts = await _context.Accounts
                 .Include(a => a.Branch)
-                .FirstOrDefaultAsync(a => a.AccountId == id);
+                .Where(a => a.UserId == user.UserId)
+                .Select(a => new AccountListResponse
+                {
+                    AccountId = a.AccountId,
+                    AccountNumber = a.AccountNumber,
+                    AccountType = a.AccountType,
+                    Balance = a.Balance,
+                    BranchName = a.Branch.BranchName
+                })
+                .ToListAsync();
 
-            if (account == null)
-                return NotFound(new { message = "Account not found." });
+            return Ok(accounts);
+        }
 
-            return Ok(new
+        // ----------------------------------------------------------------------
+        // 3️⃣ GET ALL ACCOUNTS (ADMIN/MANAGER)
+        // ----------------------------------------------------------------------
+        [HttpGet("all")]
+        [Authorize(Roles = "Manager,Admin,Super Admin")]
+        public async Task<IActionResult> GetAllAccounts()
+        {
+            var accounts = await _context.Accounts
+                .Include(a => a.Branch)
+                .Include(a => a.User)
+                .Select(a => new AccountResponse
+                {
+                    AccountId = a.AccountId,
+                    AccountNumber = a.AccountNumber,
+                    AccountType = a.AccountType,
+                    CurrencyCode = a.CurrencyCode,
+                    Balance = a.Balance,
+                    InterestRate = a.InterestRate,
+                    IsActive = a.IsActive,
+                    OpenedOn = a.OpenedOn,
+                    ClosedOn = a.ClosedOn,
+                    UserId = a.UserId,
+                    UserName = a.User.FullName,
+                    Branch = new BranchResponse
+                    {
+                        BranchId = a.Branch.BranchId,
+                        BranchCode = a.Branch.BranchCode,
+                        BranchName = a.Branch.BranchName,
+                        City = a.Branch.City,
+                        State = a.Branch.State,
+                        Country = a.Branch.Country,
+                        BankName = a.Branch.Bank.BankName
+                    }
+                })
+                .ToListAsync();
+
+            return Ok(accounts);
+        }
+
+        // ----------------------------------------------------------------------
+        // 4️⃣ GET ACCOUNT BY ID
+        // ----------------------------------------------------------------------
+        [HttpGet("{accountId}")]
+        [Authorize]
+        public async Task<IActionResult> GetAccount(long accountId)
+        {
+            var a = await _context.Accounts
+                .Include(a => a.Branch)
+                .Include(a => a.User)
+                .FirstOrDefaultAsync(a => a.AccountId == accountId);
+
+            if (a == null)
+                return NotFound(new { message = "Account not found" });
+
+            return Ok(new AccountResponse
             {
-                account.AccountId,
-                account.AccountNumber,
-                account.AccountType,
-                account.CurrencyCode,
-                account.Balance,
-                account.InterestRate,
-                account.IsActive,
-                account.OpenedOn,
-                account.ClosedOn,
-                User = new { account.User.UserId, account.User.FullName, account.User.Email },
-                Branch = new { account.Branch.BranchId, account.Branch.BranchName }
+                AccountId = a.AccountId,
+                AccountNumber = a.AccountNumber,
+                AccountType = a.AccountType,
+                CurrencyCode = a.CurrencyCode,
+                Balance = a.Balance,
+                InterestRate = a.InterestRate,
+                IsActive = a.IsActive,
+                OpenedOn = a.OpenedOn,
+                ClosedOn = a.ClosedOn,
+                UserId = a.UserId,
+                UserName = a.User.FullName,
+                Branch = new BranchResponse
+                {
+                    BranchId = a.Branch.BranchId,
+                    BranchCode = a.Branch.BranchCode,
+                    BranchName = a.Branch.BranchName,
+                    City = a.Branch.City,
+                    State = a.Branch.State,
+                    Country = a.Branch.Country,
+                    BankName = a.Branch.Bank.BankName
+                }
             });
         }
 
-        // 🟡 UPDATE — Manager, Admin, SuperAdmin
-        [HttpPut("{id}/update")]
-        [Authorize(Roles = "Manager,Admin,Super Admin")]
-        public async Task<IActionResult> UpdateAccount(long id, [FromBody] Account updatedAccount)
+        // ----------------------------------------------------------------------
+        // 5️⃣ UPDATE ACCOUNT
+        // ----------------------------------------------------------------------
+        [HttpPut("{accountId}/update")]
+        [Authorize(Roles = "Admin,Super Admin")]
+        public async Task<IActionResult> UpdateAccount(long accountId, [FromBody] UpdateAccountRequest req)
         {
-            var account = await _context.Accounts.FindAsync(id);
+            var account = await _context.Accounts.FindAsync(accountId);
             if (account == null)
-                return NotFound(new { message = "Account not found." });
+                return NotFound(new { message = "Account not found" });
 
-            account.AccountType = updatedAccount.AccountType;
-            account.CurrencyCode = updatedAccount.CurrencyCode;
-            account.Balance = updatedAccount.Balance;
-            account.InterestRate = updatedAccount.InterestRate;
-            account.IsActive = updatedAccount.IsActive;
-            account.ClosedOn = updatedAccount.ClosedOn;
+            if (req.AccountType != null) account.AccountType = req.AccountType;
+            if (req.InterestRate != null) account.InterestRate = req.InterestRate;
+            if (req.IsActive != null) account.IsActive = req.IsActive.Value;
+            if (req.ClosedOn != null) account.ClosedOn = req.ClosedOn;
 
-            _context.Entry(account).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return Ok(new { message = "✅ Account updated successfully." });
+            return Ok(new { message = "Account updated" });
         }
 
-        // 🔴 DELETE — Admin or SuperAdmin
-        [HttpDelete("{id}/delete")]
+        // ----------------------------------------------------------------------
+        // 6️⃣ CLOSE ACCOUNT
+        // ----------------------------------------------------------------------
+        [HttpPut("{accountId}/close")]
         [Authorize(Roles = "Admin,Super Admin")]
-        public async Task<IActionResult> DeleteAccount(long id)
+        public async Task<IActionResult> CloseAccount(long accountId)
         {
-            var account = await _context.Accounts.FindAsync(id);
+            var account = await _context.Accounts.FindAsync(accountId);
             if (account == null)
-                return NotFound(new { message = "Account not found." });
+                return NotFound(new { message = "Account not found" });
 
-            _context.Accounts.Remove(account);
+            account.IsActive = false;
+            account.ClosedOn = DateTime.Now;
+
             await _context.SaveChangesAsync();
 
-            return Ok(new { message = "❌ Account deleted successfully." });
+            return Ok(new { message = "Account closed" });
         }
     }
 }
