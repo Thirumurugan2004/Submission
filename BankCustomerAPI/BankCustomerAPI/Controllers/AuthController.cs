@@ -29,18 +29,21 @@ namespace BankCustomerAPI.Controllers
             _loginAttemptService = loginAttemptService;
         }
 
+        // =====================================================================
+        // 🔐 PASSWORD HASH (SHA-256)
+        // =====================================================================
         private string Hash(string password) =>
             Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(password)));
 
-        // ============================================================
-        //                     LOGIN
-        // ============================================================
+        // =====================================================================
+        // 🔑 LOGIN
+        // =====================================================================
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.Username) ||
                 string.IsNullOrWhiteSpace(request.Password))
-                return BadRequest(new { message = "Username and password are required." });
+                return BadRequest(new { message = "Username and password required." });
 
             var email = request.Username.Trim().ToLower();
             var hashed = Hash(request.Password);
@@ -52,14 +55,12 @@ namespace BankCustomerAPI.Controllers
             var ip = HttpContext.Connection.RemoteIpAddress?.ToString();
             var ua = Request.Headers.UserAgent.ToString();
 
-            // User not found
             if (user == null)
             {
                 await _loginAttemptService.LogAttemptAsync(null, email, false, ip, ua);
                 return Unauthorized(new { message = "Invalid username or password." });
             }
 
-            // Wrong password
             if (user.PasswordHash != hashed)
             {
                 await _loginAttemptService.LogAttemptAsync(user.UserId, email, false, ip, ua);
@@ -67,15 +68,17 @@ namespace BankCustomerAPI.Controllers
             }
 
             if (!user.IsActive)
-                return Unauthorized(new { message = "User is inactive." });
+                return Unauthorized(new { message = "User inactive." });
 
-            // SUCCESS
+            // Log successful attempt
             await _loginAttemptService.LogAttemptAsync(user.UserId, email, true, ip, ua);
 
+            // User roles
             var roles = user.UserRoles.Select(r => r.Role.RoleName).ToList();
             var primaryRole = roles.FirstOrDefault() ?? "User";
 
-            var accessToken = _tokenService.GenerateToken(user.Email, primaryRole);
+            // 🔥 NOW TOKEN INCLUDES userId CLAIM
+            var accessToken = _tokenService.GenerateToken(user.Email, primaryRole, user.UserId);
 
             var refreshToken = await _refreshTokenService.CreateRefreshTokenAsync(user.UserId);
 
@@ -83,7 +86,7 @@ namespace BankCustomerAPI.Controllers
             Response.Cookies.Append("refreshToken", refreshToken.Token, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = false,   // true in production
+                Secure = false, // true in production
                 SameSite = SameSiteMode.Lax,
                 Expires = refreshToken.ExpiresAt
             });
@@ -102,14 +105,13 @@ namespace BankCustomerAPI.Controllers
             });
         }
 
-        // ============================================================
-        //                      REFRESH TOKEN
-        // ============================================================
+        // =====================================================================
+        // 🔄 REFRESH TOKEN
+        // =====================================================================
         [HttpPost("refresh")]
         public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request)
         {
-            var incomingToken = request.RefreshToken ??
-                                Request.Cookies["refreshToken"];
+            var incomingToken = request.RefreshToken ?? Request.Cookies["refreshToken"];
 
             if (incomingToken == null)
                 return Unauthorized(new { message = "Refresh token missing." });
@@ -125,7 +127,7 @@ namespace BankCustomerAPI.Controllers
             var newRt = await _refreshTokenService.CreateRefreshTokenAsync(user.UserId);
             await _refreshTokenService.RotateAsync(existing, newRt);
 
-            // issue new access token
+            // Get updated roles
             var roles = await _context.UserRoles
                 .Where(r => r.UserId == user.UserId)
                 .Select(r => r.Role.RoleName)
@@ -133,9 +135,10 @@ namespace BankCustomerAPI.Controllers
 
             var primaryRole = roles.FirstOrDefault() ?? "User";
 
-            var accessToken = _tokenService.GenerateToken(user.Email, primaryRole);
+            // issue new access token
+            var accessToken = _tokenService.GenerateToken(user.Email, primaryRole, user.UserId);
 
-            // set cookie
+            // Save new cookie
             Response.Cookies.Append("refreshToken", newRt.Token, new CookieOptions
             {
                 HttpOnly = true,
@@ -151,9 +154,9 @@ namespace BankCustomerAPI.Controllers
             });
         }
 
-        // ============================================================
-        //                      LOGOUT
-        // ============================================================
+        // =====================================================================
+        // 🚪 LOGOUT
+        // =====================================================================
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
@@ -170,16 +173,16 @@ namespace BankCustomerAPI.Controllers
             return Ok(new { message = "Logged out." });
         }
 
-        // ============================================================
-        //                      REGISTER
-        // ============================================================
+        // =====================================================================
+        // 🧾 REGISTER (User role assigned automatically)
+        // =====================================================================
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.FullName) ||
                 string.IsNullOrWhiteSpace(request.Email) ||
                 string.IsNullOrWhiteSpace(request.Password))
-                return BadRequest(new { message = "Please fill all required fields." });
+                return BadRequest(new { message = "Fill all required fields." });
 
             var email = request.Email.Trim().ToLower();
 
@@ -200,7 +203,7 @@ namespace BankCustomerAPI.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            // Assign ROLE: USER
+            // Assign default USER ROLE
             _context.UserRoles.Add(new Entities.Training.UserRole
             {
                 UserId = user.UserId,

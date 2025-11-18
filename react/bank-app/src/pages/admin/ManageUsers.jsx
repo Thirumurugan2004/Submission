@@ -1,13 +1,31 @@
 import React, { useEffect, useState } from "react";
 import {
-  Paper, Typography, Table, TableHead, TableCell,
-  TableRow, TableBody, Button, Dialog, DialogTitle,
-  DialogContent, TextField, DialogActions, IconButton, Box,
-  Snackbar, Alert
+  Paper,
+  Typography,
+  TableContainer,
+  Table,
+  TableHead,
+  TableCell,
+  TableRow,
+  TableBody,
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  TextField,
+  DialogActions,
+  IconButton,
+  Box,
+  Snackbar,
+  Alert,
+  Tooltip,
+  FormControlLabel,
+  Switch
 } from "@mui/material";
 
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import AddIcon from "@mui/icons-material/AddCircle";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -21,30 +39,29 @@ export default function ManageUsers() {
   const dispatch = useDispatch();
   const { list, reload } = useSelector((s) => s.userAdmin);
 
-  const [openForm, setOpenForm] = useState(false);
-  const [editMode, setEditMode] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
-
-  // Snackbar
-  const [snack, setSnack] = useState({
-    open: false,
-    message: "",
-    severity: "success"
-  });
-
-  const showMessage = (message, severity = "success") => {
-    setSnack({ open: true, message, severity });
-  };
-
-  // Form fields
-  const [form, setForm] = useState({
+  const emptyForm = {
     fullName: "",
     email: "",
     phoneNumber: "",
     dateOfBirth: "",
     password: "",
     isActive: true
+  };
+
+  const [form, setForm] = useState(emptyForm);
+  const [openForm, setOpenForm] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+
+  const [snack, setSnack] = useState({
+    open: false,
+    message: "",
+    severity: "success"
   });
+
+  const showMessage = (msg, severity = "success") => {
+    setSnack({ open: true, message: msg, severity });
+  };
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -54,21 +71,12 @@ export default function ManageUsers() {
     if (reload) dispatch(fetchUsers());
   }, [reload, dispatch]);
 
-  // OPEN CREATE DIALOG
   const handleCreate = () => {
-    setForm({
-      fullName: "",
-      email: "",
-      phoneNumber: "",
-      dateOfBirth: "",
-      password: "",
-      isActive: true
-    });
+    setForm(emptyForm);
     setEditMode(false);
     setOpenForm(true);
   };
 
-  // OPEN EDIT DIALOG
   const handleEdit = (u) => {
     setSelectedUser(u);
     setForm({
@@ -83,30 +91,21 @@ export default function ManageUsers() {
     setOpenForm(true);
   };
 
-  // SUBMIT
   const handleSubmit = async () => {
     try {
       if (editMode) {
-        await dispatch(
-          updateUser({
-            id: selectedUser.userId,
-            data: form
-          })
-        ).unwrap();
-
+        await dispatch(updateUser({ id: selectedUser.userId, data: form })).unwrap();
         showMessage("User updated successfully");
       } else {
         await dispatch(createUser(form)).unwrap();
         showMessage("User created successfully");
       }
+      setOpenForm(false);
     } catch (err) {
       showMessage("Operation failed", "error");
     }
-
-    setOpenForm(false);
   };
 
-  // DELETE USER
   const handleDelete = async (id) => {
     try {
       await dispatch(deleteUser(id)).unwrap();
@@ -117,95 +116,155 @@ export default function ManageUsers() {
   };
 
   return (
-    <div>
-      <Box display="flex" justifyContent="space-between" mb={2}>
-        <Typography variant="h4">Users</Typography>
-        <Button variant="contained" onClick={handleCreate}>
-          CREATE USER
+    <Box>
+      {/* PAGE HEADER */}
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+        <Typography variant="h4" fontWeight="bold">
+          Users
+        </Typography>
+
+        <Button
+          variant="contained"
+          startIcon={<AddIcon />}
+          onClick={handleCreate}
+          sx={{
+            backgroundColor: "#1976d2",
+            textTransform: "none",
+            px: 3,
+            py: 1
+          }}
+        >
+          Create User
         </Button>
       </Box>
 
-      <Paper>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Phone</TableCell>
-              <TableCell>DOB</TableCell>
-              <TableCell>Active</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-
-          <TableBody>
-            {list.length === 0 && (
+      {/* TABLE */}
+      <Paper elevation={3} sx={{ borderRadius: "12px", overflow: "hidden" }}>
+        <TableContainer>
+          <Table>
+            <TableHead sx={{ backgroundColor: "#f5f7fa" }}>
               <TableRow>
-                <TableCell colSpan={7} align="center">
-                  No users found
-                </TableCell>
+                <TableCell><strong>ID</strong></TableCell>
+                <TableCell><strong>Name</strong></TableCell>
+                <TableCell><strong>Email</strong></TableCell>
+                <TableCell><strong>Phone</strong></TableCell>
+                <TableCell><strong>DOB</strong></TableCell>
+                <TableCell><strong>Active</strong></TableCell>
+                <TableCell align="center"><strong>Actions</strong></TableCell>
               </TableRow>
-            )}
+            </TableHead>
 
-            {list.map((u) => (
-              <TableRow key={u.userId}>
-                <TableCell>{u.userId}</TableCell>
-                <TableCell>{u.fullName}</TableCell>
-                <TableCell>{u.email}</TableCell>
-                <TableCell>{u.phoneNumber || "-"}</TableCell>
-                <TableCell>{u.dateOfBirth?.split("T")[0] || "-"}</TableCell>
-                <TableCell>{u.isActive ? "Yes" : "No"}</TableCell>
+            <TableBody>
+              {list.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={7} align="center" sx={{ py: 3 }}>
+                    No users found
+                  </TableCell>
+                </TableRow>
+              )}
 
-                <TableCell>
-                  <IconButton onClick={() => handleEdit(u)}>
-                    <EditIcon />
-                  </IconButton>
+              {list.map((u) => (
+                <TableRow key={u.userId} hover sx={{ height: 60 }}>
+                  <TableCell>{u.userId}</TableCell>
+                  <TableCell>{u.fullName}</TableCell>
+                  <TableCell>{u.email}</TableCell>
+                  <TableCell>{u.phoneNumber || "-"}</TableCell>
+                  <TableCell>{u.dateOfBirth?.split("T")[0] || "-"}</TableCell>
+                  <TableCell>{u.isActive ? "Yes" : "No"}</TableCell>
 
-                  <IconButton onClick={() => handleDelete(u.userId)}>
-                    <DeleteIcon />
-                  </IconButton>
-                </TableCell>
+                  <TableCell align="center">
+                    <Tooltip title="Edit">
+                      <IconButton color="primary" onClick={() => handleEdit(u)}>
+                        <EditIcon />
+                      </IconButton>
+                    </Tooltip>
 
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+                    <Tooltip title="Delete">
+                      <IconButton color="error" onClick={() => handleDelete(u.userId)}>
+                        <DeleteIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+
+                </TableRow>
+              ))}
+            </TableBody>
+
+          </Table>
+        </TableContainer>
       </Paper>
 
-      {/* CREATE/EDIT FORM */}
-      <Dialog open={openForm} onClose={() => setOpenForm(false)}>
-        <DialogTitle>{editMode ? "Edit User" : "Create User"}</DialogTitle>
+      {/* FORM DIALOG */}
+      <Dialog open={openForm} onClose={() => setOpenForm(false)} fullWidth maxWidth="sm">
+        <DialogTitle sx={{ fontWeight: "bold" }}>
+          {editMode ? "Edit User" : "Create User"}
+        </DialogTitle>
 
         <DialogContent>
-          <TextField fullWidth margin="dense" label="Full Name"
-            value={form.fullName}
-            onChange={(e) => setForm({ ...form, fullName: e.target.value })} />
+          <Box display="grid" gridTemplateColumns="1fr 1fr" gap={2} mt={1}>
 
-          <TextField fullWidth margin="dense" label="Email"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })} />
+            <TextField
+              label="Full Name"
+              fullWidth
+              value={form.fullName}
+              onChange={(e) => setForm({ ...form, fullName: e.target.value })}
+            />
 
-          <TextField fullWidth margin="dense" label="Phone Number"
-            value={form.phoneNumber}
-            onChange={(e) => setForm({ ...form, phoneNumber: e.target.value })} />
+            <TextField
+              label="Email"
+              fullWidth
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
 
-          <TextField fullWidth type="date" margin="dense" label="Date of Birth"
-            InputLabelProps={{ shrink: true }}
-            value={form.dateOfBirth}
-            onChange={(e) => setForm({ ...form, dateOfBirth: e.target.value })} />
+            <TextField
+              label="Phone Number"
+              fullWidth
+              value={form.phoneNumber}
+              onChange={(e) => setForm({ ...form, phoneNumber: e.target.value })}
+            />
 
-          {!editMode && (
-            <TextField fullWidth margin="dense" type="password" label="Password"
-              value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })} />
-          )}
+            <TextField
+              label="Date of Birth"
+              type="date"
+              InputLabelProps={{ shrink: true }}
+              fullWidth
+              value={form.dateOfBirth}
+              onChange={(e) => setForm({ ...form, dateOfBirth: e.target.value })}
+            />
+
+            {!editMode && (
+              <TextField
+                label="Password"
+                type="password"
+                fullWidth
+                sx={{ gridColumn: "span 2" }}
+                value={form.password}
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
+              />
+            )}
+
+            <Box sx={{ gridColumn: "span 2" }}>
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={form.isActive}
+                    onChange={(e) =>
+                      setForm({ ...form, isActive: e.target.checked })
+                    }
+                  />
+                }
+                label="Active User"
+              />
+            </Box>
+
+          </Box>
         </DialogContent>
 
-        <DialogActions>
+        <DialogActions sx={{ px: 3, pb: 2 }}>
           <Button onClick={() => setOpenForm(false)}>Cancel</Button>
-          <Button variant="contained" onClick={handleSubmit}>
-            {editMode ? "Update" : "Create"}
+          <Button variant="contained" sx={{ px: 3 }} onClick={handleSubmit}>
+            {editMode ? "Save Changes" : "Create"}
           </Button>
         </DialogActions>
       </Dialog>
@@ -216,11 +275,11 @@ export default function ManageUsers() {
         autoHideDuration={3000}
         onClose={() => setSnack({ ...snack, open: false })}
       >
-        <Alert severity={snack.severity} variant="filled">
+        <Alert variant="filled" severity={snack.severity}>
           {snack.message}
         </Alert>
       </Snackbar>
 
-    </div>
+    </Box>
   );
 }

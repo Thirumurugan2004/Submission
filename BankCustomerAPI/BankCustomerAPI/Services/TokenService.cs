@@ -18,7 +18,8 @@ namespace BankCustomerAPI.Services
             _keyBytes = Encoding.UTF8.GetBytes(_config["Jwt:Key"] ?? throw new ArgumentNullException("Jwt:Key"));
         }
 
-        public string GenerateToken(string username, string role)
+        // UPDATED: includes userId claim
+        public string GenerateToken(string username, string role, long userId)
         {
             var key = new SymmetricSecurityKey(_keyBytes);
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -27,6 +28,7 @@ namespace BankCustomerAPI.Services
             {
                 new Claim(JwtRegisteredClaimNames.Sub, username),
                 new Claim(ClaimTypes.Role, role),
+                new Claim("userId", userId.ToString()),   // <-- NEW CLAIM
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
@@ -57,14 +59,13 @@ namespace BankCustomerAPI.Services
                 ValidateIssuer = false,
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(_keyBytes),
-                ValidateLifetime = false // we want to get principal from expired token
+                ValidateLifetime = false
             };
 
             var handler = new JwtSecurityTokenHandler();
             try
             {
-                var principal = handler.ValidateToken(token, tokenValidationParams, out _);
-                return principal;
+                return handler.ValidateToken(token, tokenValidationParams, out _);
             }
             catch
             {

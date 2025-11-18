@@ -37,9 +37,19 @@ namespace BankCustomerAPI.Controllers
         // 1️⃣ CREATE ACCOUNT (Admin Only)
         // ----------------------------------------------------------------------
         [HttpPost("{userId}/create")]
-        [Authorize(Roles = "Admin,Super Admin")]
+        [Authorize(Roles = "User,Admin,Super Admin")]
         public async Task<IActionResult> CreateAccount(long userId, [FromBody] CreateAccountRequest req)
         {
+            var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? "";
+            var tokenUserIdStr = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+
+            // If caller is a user, they can create ONLY their own account
+            if (role.Equals("User", StringComparison.OrdinalIgnoreCase))
+            {
+                if (!long.TryParse(tokenUserIdStr, out var tokenUserId) || tokenUserId != userId)
+                    return Forbid();  // user trying to create account for another user
+            }
+
             var user = await _context.Users.FindAsync(userId);
             if (user == null)
                 return NotFound(new { message = "User not found" });
@@ -71,6 +81,7 @@ namespace BankCustomerAPI.Controllers
                 account.AccountNumber
             });
         }
+
 
         // ----------------------------------------------------------------------
         // 2️⃣ GET LOGGED-IN USER'S ACCOUNTS
@@ -202,23 +213,54 @@ namespace BankCustomerAPI.Controllers
             return Ok(new { message = "Account updated" });
         }
 
-        // ----------------------------------------------------------------------
-        // 6️⃣ CLOSE ACCOUNT
-        // ----------------------------------------------------------------------
         [HttpPut("{accountId}/close")]
-        [Authorize(Roles = "Admin,Super Admin")]
+        [Authorize(Roles = "User,Admin,Super Admin")]
         public async Task<IActionResult> CloseAccount(long accountId)
         {
-            var account = await _context.Accounts.FindAsync(accountId);
-            if (account == null)
-                return NotFound(new { message = "Account not found" });
+            try
+            {
+                var account = await _context.Accounts.FindAsync(accountId);
+                if (account == null)
+                    return NotFound(new { message = "Account not found" });
 
-            account.IsActive = false;
-            account.ClosedOn = DateTime.Now;
+                // Already closed?
+                if (!account.IsActive)
+                    return BadRequest(new { message = "Account already closed" });
 
-            await _context.SaveChangesAsync();
+                // get logged in email
+                var email = User.Claims.FirstOrDefault(c =>
+                                c.Type == JwtRegisteredClaimNames.Sub ||
+                                c.Type == ClaimTypes.NameIdentifier ||
+                                c.Type.Contains("email"))?.Value;
 
-            return Ok(new { message = "Account closed" });
+                if (email == null)
+                    return Unauthorized(new { message = "Email missing in token" });
+
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+                if (user == null)
+                    return Unauthorized(new { message = "User not found" });
+
+                // roles
+                var roles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).ToList();
+                bool isNormalUser = roles.Contains("User") && !roles.Contains("Admin") && !roles.Contains("Super Admin");
+
+                // user tries to close someone else's account
+                if (isNormalUser && account.UserId != user.UserId)
+                    return Forbid();
+
+                // CLOSE ACCOUNT
+                account.IsActive = false;
+                account.ClosedOn = DateTime.UtcNow;
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Account closed successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Server error", error = ex.Message });
+            }
         }
+
     }
 }

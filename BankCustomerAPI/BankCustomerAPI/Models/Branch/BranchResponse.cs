@@ -3,11 +3,18 @@
     public class BranchResponse
     {
         public int BranchId { get; set; }
-        public string BranchCode { get; set; } = null!;
-        public string BranchName { get; set; } = null!;
-        public string City { get; set; } = null!;
-        public string State { get; set; } = null!;
-        public string Country { get; set; } = null!;
-        public string BankName { get; set; } = null!;
+        public int BankId { get; set; }
+
+        public string BranchCode { get; set; }
+        public string BranchName { get; set; }
+        public string IFSCCode { get; set; }
+        public string? Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public string BankName { get; set; }
     }
 }

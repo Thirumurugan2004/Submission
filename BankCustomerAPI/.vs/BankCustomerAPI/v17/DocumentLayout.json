@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\models\\branch\\branchresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\models\\branch\\branchresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\entities\\training\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\entities\\training\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\controllers\\bankcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\bankcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\models\\dto\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\models\\dto\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\entities\\training\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\entities\\training\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\models\\dto\\createuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,6 +33,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\models\\dto\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\models\\dto\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\models\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,16 +71,8 @@
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\models\\employee\\employeeresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\controllers\\bankcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\bankcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\entities\\training\\accountoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\entities\\training\\accountoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\entities\\training\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\entities\\training\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\services\\loginattemptservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,14 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\entities\\training\\passwordresets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,10 +119,6 @@
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\accountoperatorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\entities\\training\\refreshtokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\entities\\training\\refreshtokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -109,10 +129,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\services\\iauditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\services\\iauditlogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\models\\accountoperators\\removeoperatorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -219,14 +235,6 @@
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\models\\branch\\createbranchrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\models\\branch\\branchresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\models\\branch\\branchresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\controllers\\branchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\models\\bank\\createbankrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\models\\bank\\createbankrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -271,20 +279,12 @@
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\entities\\training\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\entities\\training\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\entities\\training\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\entities\\training\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\entities\\training\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\entities\\training\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\entities\\training\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|solutionrelative:bankcustomerapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7732C9DB-9C1F-4FCB-AEF2-C7F56C6AB376}|BankCustomerAPI\\BankCustomerAPI.csproj|c:\\csharp_training\\csharpeproject\\submission\\bankcustomerapi\\bankcustomerapi\\bankcustomerapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -298,7 +298,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 345,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -306,7 +306,176 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAUwKIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:22:32.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\User.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\User.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\User.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Entities\\Training\\User.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAiwDUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T17:32:48.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Branch.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Branch.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\Branch.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Branch.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Entities\\Training\\Branch.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAA6wDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T17:32:15.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BranchController.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\BranchController.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\BranchController.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\BranchController.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Controllers\\BranchController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAUwEkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T07:52:44.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BankController.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\BankController.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\BankController.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\BankController.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Controllers\\BankController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAwCkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T07:52:11.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "BranchResponse.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Branch\\BranchResponse.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Branch\\BranchResponse.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Branch\\BranchResponse.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Models\\Branch\\BranchResponse.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAzwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T07:59:12.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateUserDto.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\DTO\\CreateUserDto.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\DTO\\CreateUserDto.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\DTO\\CreateUserDto.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Models\\DTO\\CreateUserDto.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T11:03:59.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AccountsController.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AccountsController.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\AccountsController.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AccountsController.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Controllers\\AccountsController.cs",
+              "ViewState": "AgIAAP8AAAAAAAAAAAAUwAcBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:49:32.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\ITokenService.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\ITokenService.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\ITokenService.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Services\\ITokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswAgAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T05:20:53.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAQwNsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T05:28:03.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\TokenService.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\TokenService.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Services\\TokenService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAQwEwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T05:23:42.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\appsettings.json",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\appsettings.json",
+              "RelativeToolTip": "BankCustomerAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-28T17:36:41.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Program.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Program.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Program.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Program.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAUwIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T17:37:51.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "UpdateUserDto.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\DTO\\UpdateUserDto.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\DTO\\UpdateUserDto.cs",
@@ -319,33 +488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CreateUserDto.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\DTO\\CreateUserDto.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\DTO\\CreateUserDto.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\DTO\\CreateUserDto.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Models\\DTO\\CreateUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:03:59.925Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PagedResult.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\PagedResult.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\PagedResult.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\PagedResult.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Models\\PagedResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T08:39:33.427Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 14,
               "Title": "RegisterRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\RegisterRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\RegisterRequest.cs",
@@ -358,33 +501,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AccountsController.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AccountsController.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\AccountsController.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AccountsController.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Controllers\\AccountsController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "PagedResult.cs",
+              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\PagedResult.cs",
+              "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\PagedResult.cs",
+              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\PagedResult.cs",
+              "RelativeToolTip": "BankCustomerAPI\\Models\\PagedResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:49:32.842Z",
+              "WhenOpened": "2025-11-17T08:39:33.427Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\UserController.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAUwDkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:22:32.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "EmployeeResponse.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Employee\\EmployeeResponse.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Employee\\EmployeeResponse.cs",
@@ -397,20 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BankController.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\BankController.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\BankController.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\BankController.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Controllers\\BankController.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAuwIYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T07:52:11.328Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "AccountOperator.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\AccountOperator.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\AccountOperator.cs",
@@ -423,20 +540,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\User.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\User.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\User.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Entities\\Training\\User.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAADwvzUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T17:32:48.55Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "LoginAttemptService.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\LoginAttemptService.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\LoginAttemptService.cs",
@@ -449,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "TransactionController.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\TransactionController.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\TransactionController.cs",
@@ -462,20 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Program.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Program.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Program.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Program.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAAFEAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T17:37:51.583Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "PasswordResets.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\PasswordResets.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\PasswordResets.cs",
@@ -487,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "TrainingContext.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Infrastructure\\Data\\TrainingContext.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Infrastructure\\Data\\TrainingContext.cs",
@@ -499,7 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "LoginAttempt.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\LoginAttempt.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\LoginAttempt.cs",
@@ -511,19 +602,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAD4vx8AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T05:28:03.668Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 23,
               "Title": "RefreshToken.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\RefreshToken.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\RefreshToken.cs",
@@ -535,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "RefreshTokenService.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\RefreshTokenService.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\RefreshTokenService.cs",
@@ -547,7 +626,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "IRefreshTokenService.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\IRefreshTokenService.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\IRefreshTokenService.cs",
@@ -559,7 +638,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "ILoginAttemptService.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\ILoginAttemptService.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\ILoginAttemptService.cs",
@@ -571,7 +650,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "AuditLog.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\AuditLog.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\AuditLog.cs",
@@ -583,7 +662,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "AccountOperatorsController.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AccountOperatorsController.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\AccountOperatorsController.cs",
@@ -595,19 +674,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\TokenService.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\TokenService.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\TokenService.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Services\\TokenService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T05:23:42.486Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "RefreshTokenRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\RefreshTokenRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\RefreshTokenRequest.cs",
@@ -619,7 +686,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "AuditLogService.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\AuditLogService.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\AuditLogService.cs",
@@ -631,7 +698,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "IAuditLogService.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\IAuditLogService.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\IAuditLogService.cs",
@@ -643,19 +710,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "ITokenService.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\ITokenService.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Services\\ITokenService.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Services\\ITokenService.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Services\\ITokenService.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAIwA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T05:20:53.225Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "AddOperatorRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\AccountOperators\\AddOperatorRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\AccountOperators\\AddOperatorRequest.cs",
@@ -667,7 +722,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "AccountOperatorResponse.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\AccountOperators\\AccountOperatorResponse.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\AccountOperators\\AccountOperatorResponse.cs",
@@ -679,7 +734,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "RemoveOperatorRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\AccountOperators\\RemoveOperatorRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\AccountOperators\\RemoveOperatorRequest.cs",
@@ -691,7 +746,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "AccountsQueryController.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AccountsQueryController.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\AccountsQueryController.cs",
@@ -703,7 +758,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "EmployeeController.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\EmployeeController.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\EmployeeController.cs",
@@ -715,7 +770,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "EmployeeListQuery.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Employee\\EmployeeListQuery.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Employee\\EmployeeListQuery.cs",
@@ -727,7 +782,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 38,
               "Title": "UpdateEmployeeRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Employee\\UpdateEmployeeRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Employee\\UpdateEmployeeRequest.cs",
@@ -739,7 +794,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 39,
               "Title": "CreateEmployeeRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Employee\\CreateEmployeeRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Employee\\CreateEmployeeRequest.cs",
@@ -751,7 +806,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 43,
               "Title": "TransactionQuery.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Transaction\\TransactionQuery.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Transaction\\TransactionQuery.cs",
@@ -763,7 +818,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 42,
               "Title": "TransactionResponse.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Transaction\\TransactionResponse.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Transaction\\TransactionResponse.cs",
@@ -775,7 +830,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 41,
               "Title": "CreateTransactionRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Transaction\\CreateTransactionRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Transaction\\CreateTransactionRequest.cs",
@@ -787,7 +842,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 40,
               "Title": "TransferRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Transaction\\TransferRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Transaction\\TransferRequest.cs",
@@ -799,7 +854,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 44,
               "Title": "AccountSummaryController.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\AccountSummaryController.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\AccountSummaryController.cs",
@@ -811,7 +866,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 45,
               "Title": "AccountListQuery.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Account\\AccountListQuery.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Account\\AccountListQuery.cs",
@@ -823,7 +878,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 46,
               "Title": "MonthlySpendingDto.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Dashboard\\MonthlySpendingDto.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Dashboard\\MonthlySpendingDto.cs",
@@ -835,7 +890,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 47,
               "Title": "RecentTransactionDto.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Dashboard\\RecentTransactionDto.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Dashboard\\RecentTransactionDto.cs",
@@ -847,7 +902,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 48,
               "Title": "AccountsByBankDto.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Dashboard\\AccountsByBankDto.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Dashboard\\AccountsByBankDto.cs",
@@ -859,7 +914,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 49,
               "Title": "AccountSummaryDto.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Dashboard\\AccountSummaryDto.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Dashboard\\AccountSummaryDto.cs",
@@ -871,7 +926,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 50,
               "Title": "AccountOperatorResponse.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Account\\AccountOperatorResponse.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Account\\AccountOperatorResponse.cs",
@@ -883,7 +938,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 51,
               "Title": "AccountListResponse.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Account\\AccountListResponse.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Account\\AccountListResponse.cs",
@@ -895,7 +950,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 52,
               "Title": "AccountResponse.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Account\\AccountResponse.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Account\\AccountResponse.cs",
@@ -907,7 +962,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 53,
               "Title": "UpdateAccountRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Account\\UpdateAccountRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Account\\UpdateAccountRequest.cs",
@@ -919,7 +974,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 54,
               "Title": "CreateAccountRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Account\\CreateAccountRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Account\\CreateAccountRequest.cs",
@@ -931,19 +986,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "BranchResponse.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Branch\\BranchResponse.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Branch\\BranchResponse.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Branch\\BranchResponse.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Models\\Branch\\BranchResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T07:59:12.459Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 56,
               "Title": "UpdateBranchRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Branch\\UpdateBranchRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Branch\\UpdateBranchRequest.cs",
@@ -955,7 +998,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 57,
               "Title": "CreateBranchRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Branch\\CreateBranchRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Branch\\CreateBranchRequest.cs",
@@ -968,18 +1011,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 55,
-              "Title": "BranchController.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\BranchController.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\BranchController.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\BranchController.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Controllers\\BranchController.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAcwIkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T07:52:44.679Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
               "Title": "BankResponse.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Bank\\BankResponse.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Bank\\BankResponse.cs",
@@ -991,7 +1022,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 59,
               "Title": "UpdateBankRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Bank\\UpdateBankRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Bank\\UpdateBankRequest.cs",
@@ -1003,7 +1034,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 58,
               "Title": "CreateBankRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\Bank\\CreateBankRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\Bank\\CreateBankRequest.cs",
@@ -1015,7 +1046,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 60,
               "Title": "RoleController.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Controllers\\RoleController.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Controllers\\RoleController.cs",
@@ -1027,7 +1058,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 61,
               "Title": "AssignRoleRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\AssignRoleRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\AssignRoleRequest.cs",
@@ -1039,7 +1070,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 62,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Models\\LoginRequest.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Models\\LoginRequest.cs",
@@ -1051,7 +1082,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 63,
               "Title": "UserRole.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\UserRole.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\UserRole.cs",
@@ -1063,7 +1094,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 64,
               "Title": "Transaction.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Transaction.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\Transaction.cs",
@@ -1075,7 +1106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 65,
               "Title": "RolePermission.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\RolePermission.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\RolePermission.cs",
@@ -1087,7 +1118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 66,
               "Title": "Role.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Role.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\Role.cs",
@@ -1099,7 +1130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 67,
               "Title": "Permission.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Permission.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\Permission.cs",
@@ -1111,7 +1142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 68,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Employee.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\Employee.cs",
@@ -1123,19 +1154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "Branch.cs",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Branch.cs",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\Branch.cs",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Branch.cs",
-              "RelativeToolTip": "BankCustomerAPI\\Entities\\Training\\Branch.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAADwvzQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T17:32:15.547Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 69,
               "Title": "Bank.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Bank.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\Bank.cs",
@@ -1147,7 +1166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 70,
               "Title": "Account.cs",
               "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\Entities\\Training\\Account.cs",
               "RelativeDocumentMoniker": "BankCustomerAPI\\Entities\\Training\\Account.cs",
@@ -1156,18 +1175,6 @@
               "ViewState": "AgIAACwAAAAAAAAAAADwvzgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T17:31:31.281Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 70,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "BankCustomerAPI\\appsettings.json",
-              "ToolTip": "C:\\Csharp_training\\CSharpeproject\\Submission\\BankCustomerAPI\\BankCustomerAPI\\appsettings.json",
-              "RelativeToolTip": "BankCustomerAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-28T17:36:41.033Z"
             },
             {
               "$type": "Document",

@@ -1,13 +1,29 @@
 import React, { useEffect, useState } from "react";
 import {
-  Paper, Typography, Table, TableHead, TableCell,
-  TableRow, TableBody, Button, Dialog, DialogTitle,
-  DialogContent, TextField, DialogActions, IconButton, Box,
-  Snackbar, Alert
+  Paper,
+  Typography,
+  TableContainer,
+  Table,
+  TableHead,
+  TableCell,
+  TableRow,
+  TableBody,
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  TextField,
+  DialogActions,
+  IconButton,
+  Box,
+  Snackbar,
+  Alert,
+  Tooltip
 } from "@mui/material";
 
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import AddIcon from "@mui/icons-material/AddCircle";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -21,11 +37,17 @@ export default function ManageBanks() {
   const dispatch = useDispatch();
   const { list, reload } = useSelector((s) => s.bankAdmin);
 
+  const emptyForm = {
+    bankName: "",
+    headOfficeAddress: "",
+    establishedDate: ""
+  };
+
+  const [form, setForm] = useState(emptyForm);
   const [openForm, setOpenForm] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [selectedBank, setSelectedBank] = useState(null);
 
-  // Snackbar
   const [snack, setSnack] = useState({
     open: false,
     message: "",
@@ -36,13 +58,6 @@ export default function ManageBanks() {
     setSnack({ open: true, message: msg, severity });
   };
 
-  // Bank Form
-  const [form, setForm] = useState({
-    bankName: "",
-    headOfficeAddress: "",
-    establishedDate: ""
-  });
-
   useEffect(() => {
     dispatch(fetchBanks());
   }, [dispatch]);
@@ -51,52 +66,38 @@ export default function ManageBanks() {
     if (reload) dispatch(fetchBanks());
   }, [reload, dispatch]);
 
-  // OPEN CREATE FORM
   const handleCreate = () => {
-    setForm({
-      bankName: "",
-      headOfficeAddress: "",
-      establishedDate: ""
-    });
+    setForm(emptyForm);
     setEditMode(false);
     setOpenForm(true);
   };
 
-  // OPEN EDIT FORM
   const handleEdit = (b) => {
     setSelectedBank(b);
     setForm({
       bankName: b.bankName,
       headOfficeAddress: b.headOfficeAddress,
-      establishedDate: b.establishedDate
-        ? b.establishedDate.split("T")[0]
-        : ""
+      establishedDate: b.establishedDate ? b.establishedDate.split("T")[0] : ""
     });
     setEditMode(true);
     setOpenForm(true);
   };
 
-  // SUBMIT CREATE / UPDATE
   const handleSubmit = async () => {
     try {
       if (editMode) {
-        await dispatch(
-          updateBank({ id: selectedBank.bankId, data: form })
-        ).unwrap();
-
+        await dispatch(updateBank({ id: selectedBank.bankId, data: form })).unwrap();
         showMessage("Bank updated successfully");
       } else {
         await dispatch(createBank(form)).unwrap();
         showMessage("Bank created successfully");
       }
+      setOpenForm(false);
     } catch (err) {
       showMessage("Operation failed", "error");
     }
-
-    setOpenForm(false);
   };
 
-  // DELETE BANK
   const handleDelete = async (id) => {
     try {
       await dispatch(deleteBank(id)).unwrap();
@@ -107,96 +108,129 @@ export default function ManageBanks() {
   };
 
   return (
-    <div>
-      <Box display="flex" justifyContent="space-between" mb={2}>
-        <Typography variant="h4">Banks</Typography>
-        <Button variant="contained" onClick={handleCreate}>
-          CREATE BANK
+    <Box>
+      {/* PAGE HEADER */}
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+        <Typography variant="h4" fontWeight="bold">
+          Banks
+        </Typography>
+
+        <Button
+          variant="contained"
+          startIcon={<AddIcon />}
+          onClick={handleCreate}
+          sx={{
+            backgroundColor: "#1976d2",
+            textTransform: "none",
+            px: 3,
+            py: 1
+          }}
+        >
+          Create Bank
         </Button>
       </Box>
 
-      <Paper>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Bank Name</TableCell>
-              <TableCell>Head Office</TableCell>
-              <TableCell>Established</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-
-          <TableBody>
-            {list.length === 0 && (
+      {/* TABLE */}
+      <Paper elevation={3} sx={{ borderRadius: "12px", overflow: "hidden" }}>
+        <TableContainer>
+          <Table>
+            <TableHead sx={{ backgroundColor: "#f5f7fa" }}>
               <TableRow>
-                <TableCell colSpan={5} align="center">
-                  No banks found
-                </TableCell>
+                <TableCell><strong>ID</strong></TableCell>
+                <TableCell><strong>Bank Name</strong></TableCell>
+                <TableCell><strong>Head Office</strong></TableCell>
+                <TableCell><strong>Established</strong></TableCell>
+                <TableCell align="center"><strong>Actions</strong></TableCell>
               </TableRow>
-            )}
+            </TableHead>
 
-            {list.map((b) => (
-              <TableRow key={b.bankId}>
-                <TableCell>{b.bankId}</TableCell>
-                <TableCell>{b.bankName}</TableCell>
-                <TableCell>{b.headOfficeAddress}</TableCell>
+            <TableBody>
+              {list.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={5} align="center" sx={{ py: 3 }}>
+                    No banks found
+                  </TableCell>
+                </TableRow>
+              )}
 
-                <TableCell>
-                  {b.establishedDate
-                    ? b.establishedDate.split("T")[0]
-                    : "-"}
-                </TableCell>
+              {list.map((b) => (
+                <TableRow key={b.bankId} hover sx={{ height: 60 }}>
+                  <TableCell>{b.bankId}</TableCell>
 
-                <TableCell>
-                  <IconButton onClick={() => handleEdit(b)}>
-                    <EditIcon />
-                  </IconButton>
+                  <TableCell sx={{ maxWidth: 200, whiteSpace: "normal" }}>
+                    {b.bankName}
+                  </TableCell>
 
-                  <IconButton onClick={() => handleDelete(b.bankId)}>
-                    <DeleteIcon />
-                  </IconButton>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+                  <TableCell sx={{ maxWidth: 220, whiteSpace: "normal" }}>
+                    {b.headOfficeAddress}
+                  </TableCell>
 
-        </Table>
+                  <TableCell>
+                    {b.establishedDate ? b.establishedDate.split("T")[0] : "-"}
+                  </TableCell>
+
+                  <TableCell align="center">
+                    <Tooltip title="Edit">
+                      <IconButton color="primary" onClick={() => handleEdit(b)}>
+                        <EditIcon />
+                      </IconButton>
+                    </Tooltip>
+
+                    <Tooltip title="Delete">
+                      <IconButton color="error" onClick={() => handleDelete(b.bankId)}>
+                        <DeleteIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+
+          </Table>
+        </TableContainer>
       </Paper>
 
-      {/* FORM */}
-      <Dialog open={openForm} onClose={() => setOpenForm(false)}>
-        <DialogTitle>{editMode ? "Edit Bank" : "Create Bank"}</DialogTitle>
+      {/* FORM DIALOG */}
+      <Dialog open={openForm} onClose={() => setOpenForm(false)} fullWidth maxWidth="sm">
+        <DialogTitle sx={{ fontWeight: "bold" }}>
+          {editMode ? "Edit Bank" : "Create Bank"}
+        </DialogTitle>
 
         <DialogContent>
-          <TextField
-            fullWidth margin="dense" label="Bank Name"
-            value={form.bankName}
-            onChange={(e) => setForm({ ...form, bankName: e.target.value })}
-          />
+          <Box display="grid" gridTemplateColumns="1fr 1fr" gap={2} mt={1}>
 
-          <TextField
-            fullWidth margin="dense" label="Head Office Address"
-            value={form.headOfficeAddress}
-            onChange={(e) =>
-              setForm({ ...form, headOfficeAddress: e.target.value })
-            }
-          />
+            <TextField
+              label="Bank Name"
+              value={form.bankName}
+              fullWidth
+              onChange={(e) => setForm({ ...form, bankName: e.target.value })}
+            />
 
-          <TextField
-            fullWidth type="date" margin="dense" label="Established Date"
-            value={form.establishedDate}
-            InputLabelProps={{ shrink: true }}
-            onChange={(e) =>
-              setForm({ ...form, establishedDate: e.target.value })
-            }
-          />
+            <TextField
+              label="Established Date"
+              type="date"
+              InputLabelProps={{ shrink: true }}
+              value={form.establishedDate}
+              onChange={(e) => setForm({ ...form, establishedDate: e.target.value })}
+            />
+
+            <TextField
+              label="Head Office Address"
+              fullWidth
+              multiline
+              rows={2}
+              sx={{ gridColumn: "span 2" }}
+              value={form.headOfficeAddress}
+              onChange={(e) => setForm({ ...form, headOfficeAddress: e.target.value })}
+            />
+
+          </Box>
         </DialogContent>
 
-        <DialogActions>
+        <DialogActions sx={{ px: 3, pb: 2 }}>
           <Button onClick={() => setOpenForm(false)}>Cancel</Button>
-          <Button variant="contained" onClick={handleSubmit}>
-            {editMode ? "Update" : "Create"}
+          <Button variant="contained" sx={{ px: 3 }} onClick={handleSubmit}>
+            {editMode ? "Save Changes" : "Create"}
           </Button>
         </DialogActions>
       </Dialog>
@@ -207,10 +241,10 @@ export default function ManageBanks() {
         autoHideDuration={3000}
         onClose={() => setSnack({ ...snack, open: false })}
       >
-        <Alert severity={snack.severity} variant="filled">
+        <Alert variant="filled" severity={snack.severity}>
           {snack.message}
         </Alert>
       </Snackbar>
-    </div>
+    </Box>
   );
 }

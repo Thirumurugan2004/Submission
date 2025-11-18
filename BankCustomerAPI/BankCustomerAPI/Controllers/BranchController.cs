@@ -56,12 +56,17 @@ namespace BankCustomerAPI.Controllers
                 .Select(br => new BranchResponse
                 {
                     BranchId = br.BranchId,
+                    BankId = br.BankId,
+                    BankName = br.Bank.BankName,
+
                     BranchCode = br.BranchCode,
                     BranchName = br.BranchName,
+                    IFSCCode = br.IFSCCode,
+                    Address = br.Address,
                     City = br.City,
                     State = br.State,
                     Country = br.Country,
-                    BankName = br.Bank.BankName
+                    CreatedAt = br.CreatedAt
                 })
                 .ToListAsync();
 

@@ -1,35 +1,25 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function ProtectedRoute({ roles = [] }) {
-  const { token, user } = useSelector((state) => state.auth);
+export default function ProtectedRoute({ roles }) {
+  const { user } = useSelector((s) => s.auth);
 
-  // User not logged in → redirect
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
+  if (!user) return <Navigate to="/login" />;
 
-  // Normalize user roles (array from API)
-  const userRoles = (user?.roles || []).map((r) => r.toUpperCase());
+  const userRoles = (user.roles || []).map((r) => r.trim());
 
-  // Extract primary role (first in list)
-  const primaryRole = userRoles[0] || "";
+  // Check if ANY of the required roles exists in userRoles
+  const hasAccess = roles.some((role) => userRoles.includes(role));
 
-  // If allowedRoles is provided, check match
-  if (roles.length > 0) {
-    const requiredRoles = roles.map((r) => r.toUpperCase()); // normalize allowed roles
-    const hasAccess =
-      requiredRoles.includes(primaryRole) ||
-      userRoles.some((r) => requiredRoles.includes(r));
-
-    if (!hasAccess) {
-      return (
-        <div style={{ padding: 20, fontSize: 18, color: "red" }}>
-          Access Denied — You don't have permission
-        </div>
-      );
+  if (!hasAccess) {
+    // Redirect ADMIN to /admin if they try opening user pages
+    if (userRoles.includes("Admin") || userRoles.includes("Super Admin")) {
+      return <Navigate to="/admin" replace />;
     }
+
+    // Redirect USER to /accounts if they try to open admin pages
+    return <Navigate to="/accounts" replace />;
   }
 
   return <Outlet />;

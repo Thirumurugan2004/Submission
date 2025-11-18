@@ -146,6 +146,10 @@ namespace BankCustomerAPI.Controllers
                     u.UserId,
                     u.FullName,
                     u.Email,
+                    u.PhoneNumber,
+                    DateOfBirth = u.DateOfBirth.HasValue
+                        ? u.DateOfBirth.Value.ToString("yyyy-MM-dd")
+                        : null,
                     u.IsActive,
                     u.CreatedAt,
                     u.UpdatedAt
