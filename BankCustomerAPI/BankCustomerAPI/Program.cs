@@ -8,23 +8,31 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// JWT Token Service
+// ==============================
+//  SERVICES
+// ==============================
+
+// Security Services
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+builder.Services.AddScoped<ILoginAttemptService, LoginAttemptService>();
+builder.Services.AddScoped<IAuditLogService, AuditLogService>();
 
 // DbContext
 builder.Services.AddDbContext<TrainingContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<ITokenService, TokenService>(); // if not already
-builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
-builder.Services.AddScoped<ILoginAttemptService, LoginAttemptService>();
-builder.Services.AddScoped<IAuditLogService, AuditLogService>();
-
-// JWT Authentication Configuration
+// ==============================
+// JWT Authentication
+// ==============================
 var keyBytes = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!);
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -37,7 +45,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// Authorization policies
+// ==============================
+// Authorization Policies
+// ==============================
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("RequireAdmin", policy => policy.RequireRole("Admin", "Super Admin"));
@@ -46,25 +56,30 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("RequireViewer", policy => policy.RequireRole("Viewer", "Admin", "Super Admin"));
 });
 
-// ✅ Allow all CORS (disable restrictions)
+// ==============================
+//  CORS — ALLOW FRONTEND + COOKIES
+// ==============================
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://localhost:3000")   // Your React App
+              .AllowAnyHeader()
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowCredentials();                     // needed for HttpOnly cookies
     });
 });
 
-// Swagger
+// ==============================
+//  Swagger
+// ==============================
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Bank Customer API", Version = "v1" });
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
+        Description = "JWT Authorization header. Example: Bearer {token}",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
@@ -74,8 +89,15 @@ builder.Services.AddSwaggerGen(options =>
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
-            new OpenApiSecurityScheme { Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" } },
-            new string[] { }
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[]{}
         }
     });
 });
@@ -85,6 +107,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
+// ==============================
+//  MIDDLEWARE PIPELINE
+// ==============================
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -93,8 +118,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// ✅ Apply CORS policy before authentication
-app.UseCors("AllowAll");
+// ORDER IMPORTANT: CORS BEFORE AUTH
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();

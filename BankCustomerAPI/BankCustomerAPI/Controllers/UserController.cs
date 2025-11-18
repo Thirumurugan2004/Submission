@@ -1,5 +1,6 @@
-﻿using BankCustomerAPI.Infrastructure.Data;
-using BankCustomerAPI.Entities.Training;
+﻿using BankCustomerAPI.Entities.Training;
+using BankCustomerAPI.Infrastructure.Data;
+using BankCustomerAPI.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BankCustomerAPI.Controllers
 {
     [ApiController]
-    [Route("BankCustomerAPI/user/{id}")]
+    [Route("BankCustomerAPI/user")]
     public class UserController : ControllerBase
     {
         private readonly TrainingContext _context;
@@ -17,16 +18,38 @@ namespace BankCustomerAPI.Controllers
             _context = context;
         }
 
-        // 🟢 CREATE — Only Admin or SuperAdmin
+        // ------------------------------------------------------
+        // CREATE USER
+        // ------------------------------------------------------
         [HttpPost("create")]
         [Authorize(Roles = "Admin,Super Admin")]
-        public async Task<IActionResult> CreateUser(long id, [FromBody] User newUser)
+        public async Task<IActionResult> CreateUser(long id, [FromBody] CreateUserDto dto)
         {
-            if (newUser == null)
+            if (dto == null)
                 return BadRequest(new { message = "Invalid user data" });
 
-            newUser.CreatedAt = DateTime.Now;
-            newUser.IsActive = true;
+            if (await _context.Users.AnyAsync(u => u.Email == dto.Email))
+                return BadRequest(new { message = "Email already exists" });
+
+            var salt = Guid.NewGuid().ToString();
+            var passwordHash = Convert.ToBase64String(
+                System.Security.Cryptography.SHA256.HashData(
+                    System.Text.Encoding.UTF8.GetBytes(dto.Password + salt)
+                )
+            );
+
+            var newUser = new User
+            {
+                FullName = dto.FullName,
+                Email = dto.Email,
+                PhoneNumber = dto.PhoneNumber,
+                DateOfBirth = dto.DateOfBirth,
+                PasswordHash = passwordHash,
+                Salt = salt,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = null,
+                IsActive = true
+            };
 
             _context.Users.Add(newUser);
             await _context.SaveChangesAsync();
@@ -34,9 +57,11 @@ namespace BankCustomerAPI.Controllers
             return Ok(new { message = "User created successfully", userId = newUser.UserId });
         }
 
-        // 🔵 READ (Single User) — All roles can view
-        [HttpGet("read")]
-        [Authorize(Roles = "Viewer,User,Manager,Admin,Super Admin")]
+        // ------------------------------------------------------
+        // READ USER BY ID
+        // ------------------------------------------------------
+        [HttpGet("{id}/read")]
+        [Authorize]
         public async Task<IActionResult> ReadUser(long id)
         {
             var user = await _context.Users
@@ -44,7 +69,7 @@ namespace BankCustomerAPI.Controllers
                 .FirstOrDefaultAsync();
 
             if (user == null)
-                return NotFound(new { message = "User not found or inactive" });
+                return NotFound(new { message = "User not found" });
 
             return Ok(new
             {
@@ -55,28 +80,43 @@ namespace BankCustomerAPI.Controllers
             });
         }
 
-        // 🟡 UPDATE — Manager, Admin, SuperAdmin
+        // ------------------------------------------------------
+        // UPDATE USER
+        // ------------------------------------------------------
         [HttpPut("update")]
         [Authorize(Roles = "Manager,Admin,Super Admin")]
-        public async Task<IActionResult> UpdateUser(long id, [FromBody] User updatedUser)
+        public async Task<IActionResult> UpdateUser(long id, [FromBody] UpdateUserDto dto)
         {
             var user = await _context.Users.FindAsync(id);
             if (user == null)
                 return NotFound(new { message = "User not found" });
 
-            user.FullName = updatedUser.FullName ?? user.FullName;
-            user.Email = updatedUser.Email ?? user.Email;
-            user.IsActive = updatedUser.IsActive;
+            if (!string.IsNullOrWhiteSpace(dto.FullName))
+                user.FullName = dto.FullName;
+
+            if (!string.IsNullOrWhiteSpace(dto.Email))
+                user.Email = dto.Email;
+
+            if (!string.IsNullOrWhiteSpace(dto.PhoneNumber))
+                user.PhoneNumber = dto.PhoneNumber;
+
+            if (dto.DateOfBirth.HasValue)
+                user.DateOfBirth = dto.DateOfBirth;
+
+            if (dto.IsActive.HasValue)
+                user.IsActive = dto.IsActive.Value;
+
             user.UpdatedAt = DateTime.Now;
 
-            _context.Entry(user).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "User updated successfully" });
         }
 
-        // 🔴 DELETE (Soft Delete) — Admin or SuperAdmin
-        [HttpDelete("delete")]
+        // ------------------------------------------------------
+        // SOFT DELETE USER
+        // ------------------------------------------------------
+        [HttpDelete("{id}/delete")]
         [Authorize(Roles = "Admin,Super Admin")]
         public async Task<IActionResult> DeleteUser(long id)
         {
@@ -84,31 +124,21 @@ namespace BankCustomerAPI.Controllers
             if (user == null)
                 return NotFound(new { message = "User not found" });
 
-            // Soft Delete — mark inactive instead of removing
             user.IsActive = false;
             user.UpdatedAt = DateTime.Now;
 
-            _context.Entry(user).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return Ok(new { message = "User soft-deleted successfully (marked inactive)" });
+            return Ok(new { message = "User soft-deleted successfully" });
         }
 
-        // 🟣 GET ALL USERS — Manager, Admin, SuperAdmin
+        // ------------------------------------------------------
+        // GET ALL USERS — CLEAN & FIXED ENDPOINT
+        // ------------------------------------------------------
         [HttpGet("all")]
-        [Authorize] // authorize first (any valid token)
+        [Authorize(Roles = "Manager,Admin,Super Admin")]
         public async Task<IActionResult> GetAllUsers()
         {
-            // ✅ Check if user has required role
-            var userRole = User.Claims
-                .FirstOrDefault(c => c.Type.Contains("role"))?.Value;
-
-            if (userRole is not ("Manager" or "Admin" or "Super Admin"))
-            {
-                return Forbid(); // OR:
-                                 // return StatusCode(403, new { message = "No permission to view users" });
-            }
-
             var users = await _context.Users
                 .Where(u => u.IsActive)
                 .Select(u => new

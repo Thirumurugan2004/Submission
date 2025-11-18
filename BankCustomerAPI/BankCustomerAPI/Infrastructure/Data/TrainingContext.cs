@@ -1,18 +1,13 @@
 ﻿using BankCustomerAPI.Entities.Training;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace BankCustomerAPI.Infrastructure.Data
 {
     public class TrainingContext : DbContext
     {
-        public TrainingContext(DbContextOptions<TrainingContext> options)
-            : base(options)
-        {
-        }
+        public TrainingContext(DbContextOptions<TrainingContext> options) : base(options) { }
 
-        // -------------------- DBSets --------------------
+        // ===================== DB SETS =====================
         public DbSet<Role> Roles { get; set; } = null!;
         public DbSet<Permission> Permissions { get; set; } = null!;
         public DbSet<RolePermission> RolePermissions { get; set; } = null!;
@@ -26,9 +21,10 @@ namespace BankCustomerAPI.Infrastructure.Data
         public DbSet<Transaction> Transactions { get; set; } = null!;
 
         // Security
-        public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
-        public DbSet<AuditLog> AuditLogs { get; set; } = null!;
         public DbSet<LoginAttempt> LoginAttempts { get; set; } = null!;
+        public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
+        public DbSet<PasswordReset> PasswordResets { get; set; } = null!;
+        public DbSet<AuditLog> AuditLogs { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,14 +32,17 @@ namespace BankCustomerAPI.Infrastructure.Data
 
             modelBuilder.HasDefaultSchema("training");
 
-            // -------------------- Composite Keys --------------------
+            // ===================== KEYS =====================
             modelBuilder.Entity<UserRole>()
                 .HasKey(ur => new { ur.UserId, ur.RoleId });
 
             modelBuilder.Entity<RolePermission>()
                 .HasKey(rp => new { rp.RoleId, rp.PermissionId });
 
-            // -------------------- Relationships --------------------
+            modelBuilder.Entity<AccountOperator>()
+                .HasKey(ao => new { ao.AccountId, ao.OperatorUserId });
+
+            // ===================== RELATIONSHIPS =====================
 
             // UserRole → User
             modelBuilder.Entity<UserRole>()
@@ -57,6 +56,20 @@ namespace BankCustomerAPI.Infrastructure.Data
                 .HasOne(ur => ur.Role)
                 .WithMany(r => r.UserRoles)
                 .HasForeignKey(ur => ur.RoleId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // RolePermission → Role
+            modelBuilder.Entity<RolePermission>()
+                .HasOne(rp => rp.Role)
+                .WithMany(r => r.RolePermissions)
+                .HasForeignKey(rp => rp.RoleId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // RolePermission → Permission
+            modelBuilder.Entity<RolePermission>()
+                .HasOne(rp => rp.Permission)
+                .WithMany(p => p.RolePermissions)
+                .HasForeignKey(rp => rp.PermissionId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Branch → Bank
@@ -122,54 +135,48 @@ namespace BankCustomerAPI.Infrastructure.Data
                 .HasForeignKey(t => t.AccountId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Transaction → PerformedByUser
+            // Transaction → User
             modelBuilder.Entity<Transaction>()
                 .HasOne(t => t.PerformedByUser)
                 .WithMany(u => u.Transactions)
                 .HasForeignKey(t => t.PerformedBy)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // -------------------- Security Relationships --------------------
-
-            modelBuilder.Entity<RefreshToken>()
-    .HasOne(rt => rt.User)
-    .WithMany()
-    .HasForeignKey(rt => rt.UserId)
-    .OnDelete(DeleteBehavior.Cascade);
-
+            // LoginAttempt → User (nullable FK)
             modelBuilder.Entity<LoginAttempt>()
-     .HasOne(la => la.User)
-     .WithMany()
-     .HasForeignKey(la => la.UserId)
-     .OnDelete(DeleteBehavior.SetNull);
+                .HasOne(l => l.User)
+                .WithMany()
+                .HasForeignKey(l => l.UserId)
+                .OnDelete(DeleteBehavior.SetNull);
 
-            //modelBuilder.Entity<RefreshToken>()
-            //    .HasOne(rt => rt.User)
-            //    .WithMany()
-            //    .HasForeignKey(rt => rt.UserId)
-            //    .OnDelete(DeleteBehavior.Cascade);
+            // RefreshToken → User
+            modelBuilder.Entity<RefreshToken>()
+                .HasOne(rt => rt.User)
+                .WithMany()
+                .HasForeignKey(rt => rt.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            // PasswordReset → User
+            modelBuilder.Entity<PasswordReset>()
+                .HasOne(p => p.User)
+                .WithMany()
+                .HasForeignKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // AuditLog → User
             modelBuilder.Entity<AuditLog>()
                 .HasOne(a => a.User)
                 .WithMany()
                 .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            //modelBuilder.Entity<LoginAttempt>()
-            //    .HasOne<User>()
-            //    .WithMany()
-            //    .HasForeignKey(a => a.UserId)
-            //    .OnDelete(DeleteBehavior.SetNull);
-
-            // -------------------- Indexes --------------------
+            // ===================== INDEXES =====================
             modelBuilder.Entity<RefreshToken>().HasIndex(rt => rt.Token);
             modelBuilder.Entity<RefreshToken>().HasIndex(rt => rt.UserId);
-            modelBuilder.Entity<LoginAttempt>().HasIndex(la => la.Email);
+
+            // Correct index for LoginAttempt
+            modelBuilder.Entity<LoginAttempt>().HasIndex(la => la.Username);
             modelBuilder.Entity<LoginAttempt>().HasIndex(la => la.AttemptAt);
-
-
-            // -------------------- Seed Removed --------------------
-            // REMOVE seed to prevent duplicate data issues
         }
     }
 }
