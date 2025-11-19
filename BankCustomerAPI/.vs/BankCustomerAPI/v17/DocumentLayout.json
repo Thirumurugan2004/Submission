@@ -314,8 +314,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Controllers\\UserController.cs",
               "ViewState": "AgIAAJoAAAAAAAAAAAAUwKIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:22:32.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-30T14:22:32.98Z"
             },
             {
               "$type": "Document",
@@ -327,8 +326,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Entities\\Training\\User.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAiwDUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T17:32:48.55Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T17:32:48.55Z"
             },
             {
               "$type": "Document",
@@ -340,8 +338,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Entities\\Training\\Branch.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAA6wDQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T17:32:15.547Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T17:32:15.547Z"
             },
             {
               "$type": "Document",
@@ -366,8 +363,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Controllers\\BankController.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAAwCkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T07:52:11.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T07:52:11.328Z"
             },
             {
               "$type": "Document",
@@ -379,8 +375,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Models\\Branch\\BranchResponse.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAzwBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T07:59:12.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T07:59:12.459Z"
             },
             {
               "$type": "Document",
@@ -392,8 +387,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Models\\DTO\\CreateUserDto.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAxwAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:03:59.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T11:03:59.925Z"
             },
             {
               "$type": "Document",
@@ -405,8 +399,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Controllers\\AccountsController.cs",
               "ViewState": "AgIAAP8AAAAAAAAAAAAUwAcBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:49:32.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-30T15:49:32.842Z"
             },
             {
               "$type": "Document",
@@ -418,8 +411,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Services\\ITokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAswAgAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T05:20:53.225Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T05:20:53.225Z"
             },
             {
               "$type": "Document",
@@ -431,8 +423,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAMwAAAAAAAAAAAAQwNsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T05:28:03.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T05:28:03.668Z"
             },
             {
               "$type": "Document",
@@ -444,8 +435,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Services\\TokenService.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAQwEwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T05:23:42.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T05:23:42.486Z"
             },
             {
               "$type": "Document",
@@ -457,8 +447,7 @@
               "RelativeToolTip": "BankCustomerAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-28T17:36:41.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T17:36:41.033Z"
             },
             {
               "$type": "Document",
@@ -470,8 +459,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Program.cs",
               "ViewState": "AgIAAHkAAAAAAAAAAAAUwIEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T17:37:51.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T17:37:51.583Z"
             },
             {
               "$type": "Document",
@@ -483,8 +471,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Models\\DTO\\UpdateUserDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:35:45.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T11:35:45.398Z"
             },
             {
               "$type": "Document",
@@ -496,8 +483,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Models\\RegisterRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T07:01:16.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T07:01:16.043Z"
             },
             {
               "$type": "Document",
@@ -509,8 +495,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Models\\PagedResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T08:39:33.427Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T08:39:33.427Z"
             },
             {
               "$type": "Document",
@@ -522,8 +507,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Models\\Employee\\EmployeeResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T09:18:27.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T09:18:27.271Z"
             },
             {
               "$type": "Document",
@@ -535,8 +519,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Entities\\Training\\AccountOperator.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAiwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T17:31:47.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T17:31:47.744Z"
             },
             {
               "$type": "Document",
@@ -548,8 +531,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Services\\LoginAttemptService.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAuwD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T10:44:22.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T10:44:22.166Z"
             },
             {
               "$type": "Document",
@@ -561,8 +543,7 @@
               "RelativeToolTip": "BankCustomerAPI\\Controllers\\TransactionController.cs",
               "ViewState": "AgIAAPIAAAAAAAAAAAAUwAgBAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T08:21:44.206Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T08:21:44.206Z"
             },
             {
               "$type": "Document",

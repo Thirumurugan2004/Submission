@@ -1,70 +1,281 @@
-# Getting Started with Create React App
+💳 Bank Customer Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A complete full-stack banking application built with React + Redux Toolkit (frontend) and ASP.NET Core Web API (backend) with JWT authentication, role-based authorization, account management, and transaction handling.
 
-## Available Scripts
+This project simulates a real banking environment where customers and administrators can perform secure operations such as managing branches, banks, users, accounts, and financial transactions.
 
-In the project directory, you can run:
+🚀 Features
+👤 Authentication & Authorization
 
-### `npm start`
+Secure login with JWT Bearer Tokens
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Refresh token rotation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Role-based access control:
 
-### `npm test`
+Super Admin
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Admin
 
-### `npm run build`
+Manager
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+User
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Auto-redirect based on login role
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🏦 Admin Features
 
-### `npm run eject`
+Admins can manage all banking entities:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Bank Management
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create / Edit / Delete banks
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Sorting (ID, Name, Headquarters)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Search (by name, ID, head office)
 
-## Learn More
+Clean UI with dialogs
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Branch Management
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create / Edit / Delete branches
 
-### Code Splitting
+Fields include IFSC, city, state, country
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Sorting + searching + filtering
 
-### Analyzing the Bundle Size
+3. User Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Create new users with password hashing + salt
 
-### Making a Progressive Web App
+Update user info (phone, DOB, email)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Soft delete users
 
-### Advanced Configuration
+Search + sort
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Account Administration
 
-### Deployment
+Create accounts for users
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Close accounts
 
-### `npm run build` fails to minify
+View all accounts with branch info
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+💼 User Features
+Accounts
+
+View all personal accounts
+
+Real-time balance updates
+
+Create account (if admin gives access)
+
+Close account
+
+Transactions
+
+Deposit
+
+Withdraw
+
+Transfer between accounts
+
+Transaction history (date range filtering)
+
+Recent transactions sidebar
+
+🧱 Tech Stack
+Frontend
+
+React.js
+
+Redux Toolkit
+
+Axios
+
+React Router
+
+Material UI (MUI)
+
+JWT handling via interceptors
+
+Backend
+
+ASP.NET Core 7 Web API
+
+SQL Server
+
+Entity Framework Core
+
+JWT Authentication
+
+Refresh Token System
+
+Role-Based Authorization
+
+CORS Configuration
+
+🗂 Project Structure
+Frontend (/react/banking-app)
+src/
+ ├── components/
+ ├── layouts/
+ ├── pages/
+ │    ├── admin/
+ │    ├── auth/
+ │    ├── user/
+ │    └── public/
+ ├── redux/
+ │    ├── slices/
+ │    └── store.js
+ ├── api/axios.js
+ └── App.jsx
+
+Backend (/BankCustomerAPI)
+Controllers/
+ ├── AuthController.cs
+ ├── UserController.cs
+ ├── BankController.cs
+ ├── BranchController.cs
+ ├── AccountController.cs
+ └── TransactionController.cs
+
+Entities/
+Models/
+Data/
+Services/
+Program.cs
+
+🔐 Authentication Flow
+
+User logs in → server generates JWT + RefreshToken
+
+JWT stored in localStorage
+
+Refresh token stored in HttpOnly cookie
+
+Axios interceptors automatically refresh token when expired
+
+Role is extracted from JWT → UI redirects to:
+
+/admin
+
+/accounts
+
+💳 Banking Features
+Account Structure
+
+Each account includes:
+
+Account Number
+
+Type (Savings / Current)
+
+Branch
+
+Interest Rate
+
+Balance
+
+Status (Active/Closed)
+
+Transactions
+
+Each transaction stores:
+
+Type (Deposit / Withdraw / Transfer)
+
+Date & Time
+
+Amount
+
+Reference No.
+
+Performed By
+
+Remarks
+
+🧪 API Endpoints (Summary)
+Authentication
+POST /login
+POST /refresh
+POST /logout
+POST /register
+
+Users
+POST /user/create
+PUT  /user/update?id=
+GET  /user/{id}/read
+DELETE /user/{id}/delete
+GET /user/all
+
+Banks
+POST /banks/create
+GET /banks
+PUT /banks/{id}/update
+DELETE /banks/{id}/delete
+
+Branches
+POST /branches/create
+GET /branches
+PUT /branches/{id}/update
+DELETE /branches/{id}/delete
+
+Accounts
+POST /accounts/{userId}/create
+GET  /accounts/my
+GET  /accounts/all
+PUT  /accounts/{id}/close
+
+Transactions
+POST /transactions/deposit
+POST /transactions/withdraw
+POST /transactions/transfer
+GET  /transactions/{accountId}/recent
+GET  /transactions/{accountId}/history
+
+⚙️ Setup Instructions
+Backend Setup
+
+Update appsettings.json with SQL Server connection.
+
+Run EF migrations:
+
+dotnet ef database update
+
+
+Start API:
+
+dotnet run
+
+Frontend Setup
+
+Go to React folder:
+
+cd react/banking-app
+
+
+Install dependencies:
+
+npm install
+
+
+Start UI:
+
+npm start
+
+📸 Screenshots (Optional)
+
+(Add your screenshots here for UI demo)
+
+🏁 Conclusion
+
+This project demonstrates:
+✔ Full-stack development
+✔ Authentication & authorization
+✔ Clean React UI with Redux
+✔ Real banking operations
+✔ Admin-level control panel
+✔ SQL-backed EF Core data layer
